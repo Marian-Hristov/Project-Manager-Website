@@ -1,0 +1,12 @@
+/* Top buttons */
+header nav input{
+    justify-content: end;
+}
+/* Logo */
+header nav img {
+    display: flex;
+}
+/* Nav bar */
+header nav {
+    
+}

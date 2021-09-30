@@ -1,6 +1,5 @@
 *,
 html {
-    border: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -14,14 +13,11 @@ body {
 }
 
 .main-container {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
     width: 80%;
     margin: 0 auto;
 }
 
-header,
-footer {
+header,footer {
     text-align: center;
 }
 
