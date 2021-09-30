@@ -1,0 +1,31 @@
+:root{
+    /* CSS HEX (Left palette)*/
+    --jet: #353535ff;
+    --ming: #3c6e71ff;
+    --white: #ffffffff;
+    --gainsboro: #d9d9d9ff;
+    --indigo-dye: #284b63ff;
+
+    /* CSS HEX (mid palette) */
+    --bdazzled-blue: #3d5a80ff;
+    --pale-cerulean: #98c1d9ff;
+    --light-cyan: #e0fbfcff;
+    --burnt-sienna: #ee6c4dff;
+    --gunmetal: #293241ff;
+
+    /* CSS HEX (Right palette)*/
+    --true-blue: #0466c8ff;
+    --usafa-blue: #0353a4ff;
+    --dark-cornflower-blue: #023e7dff;
+    --oxford-blue: #002855ff;
+    --oxford-blue-2: #001845ff;
+    --oxford-blue-3: #001233ff;
+    --independence: #33415cff;
+    --black-coral: #5c677dff;
+    --roman-silver: #7d8597ff;
+    --manatee: #979dacff;
+
+
+}
+
+
