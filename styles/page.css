@@ -16,7 +16,6 @@ body {
 .main-container {
     border-left: 1px solid black;
     border-right: 1px solid black;
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -25,6 +24,7 @@ footer {
     text-align: center;
 }
 
-#trash-icon{
-    color:#293241;
+
+#trash-icon {
+    color: #293241;
 }
