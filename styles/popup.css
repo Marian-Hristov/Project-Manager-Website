@@ -1,0 +1,25 @@
+.pop-up {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.pop-up-container {
+    height: 100%;
+    width: 100%;
+}
+
+.pop-up-box {
+    height: 75%;
+    width: 75%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 1em;
+    border: 1px solid black;
+}
