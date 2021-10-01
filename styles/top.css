@@ -2,11 +2,14 @@
 header nav input{
     justify-content: end;
 }
-/* Logo */
-header nav img {
-    display: flex;
-}
 /* Nav bar */
+header nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+/* Nav bar buttons container */
 header nav span{
-    
+    display: flex;
+    justify-content: end;
 }
