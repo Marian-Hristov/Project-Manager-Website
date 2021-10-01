@@ -13,6 +13,8 @@
 }
 
 .pop-up-box {
+    display: flex;
+    flex-direction: column;
     height: 75%;
     width: 75%;
     position: relative;
@@ -27,4 +29,63 @@
 .pop-up-box nav {
     display: flex;
     flex-direction: row;
+}
+
+.pop-up-title {
+    flex-grow: 9;
+}
+
+.pop-up-title p {
+    margin: 0.5em;
+    margin-left: 1.5rem;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.pop-up-close {
+    flex-grow: 1;
+    position: relative;
+}
+
+.pop-up-close svg {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    height: 1.75em;
+}
+
+.pop-up-close svg:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.pop-up-info-container {
+    border: 1px solid black;
+    margin: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+    flex-grow: 1;
+}
+
+.pop-up-info-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.pop-up-info-container form fieldset {
+    flex-grow: 1;
+    border: none;
+}
+
+.pop-up-action-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5rem;
+}
+
+.pop-up-action-container input {
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    background: white;
+    font-size: 1rem;
 }
