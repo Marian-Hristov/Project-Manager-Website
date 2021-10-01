@@ -23,3 +23,8 @@
     border-radius: 1em;
     border: 1px solid black;
 }
+
+.pop-up-box nav {
+    display: flex;
+    flex-direction: row;
+}
