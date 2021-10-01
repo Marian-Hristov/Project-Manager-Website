@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/page.css">
     <link rel="stylesheet" href="../styles/top.css">
     <link rel="stylesheet" href="../styles/popup.css">
+    <link rel="stylesheet" href="../styles/form.css">
     <title>Project Manager</title>
 </head>
 
@@ -66,13 +67,14 @@
                             <form>
                                 <fieldset id="project-identification">
                                     <label for="project-id">Project ID</label>
-                                    <input type="text" name="project-id" id="project-id" placeholder="Enter ID">
+                                    <input type="text" name="project-id" id="project-id" placeholder="Enter ID"
+                                        required>
                                     <label for="project-owner">Project Owner</label>
                                     <input type="text" name="project-owner" id="project-owner"
                                         placeholder="Enter Owner">
                                 </fieldset>
                                 <fieldset id="project-titling">
-                                    <label for="project-title"></label>
+                                    <label for="project-title">Title</label>
                                     <input type="text" name="project-title" id="project-title"
                                         placeholder="Enter Title">
                                     <label for="project-category">Category</label>
@@ -90,13 +92,20 @@
                                     <label for="project-rate">Rate</label>
                                     <input type="number" name="project-rate" id="project-rate" min="0">
                                     <label for="project-status">Status</label>
-                                    <select name="project-status" id="project-status">
-                                        <!-- Not sure about the values of the options -->
+                                    <!-- ! Ask nas if we can use datalist element -->
+                                    <input list="project-status">
+                                    <datalist id="project-status">
+                                        <option value="Not Started"></option>
+                                        <option value="Ongoing"></option>
+                                        <option value="Completed"></option>
+                                    </datalist>
+                                    <!-- <select name="project-status" id="project-status">
+                                        Not sure about the values of the options
                                         <option value="select">Select A Status</option>
                                         <option value="notStarted">Not Started</option>
                                         <option value="ongoing">Ongoing</option>
                                         <option value="completed">Completed</option>
-                                    </select>
+                                    </select> -->
                                 </fieldset>
                                 <fieldset id="project-specifications">
                                     <label for="project-description">Project Description</label>
