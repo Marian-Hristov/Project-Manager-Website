@@ -36,4 +36,6 @@ footer {
     min-width: 100%;
     height: max-content;
     flex-grow: 1;
+    display: flex;
+    align-items: center;
 }
