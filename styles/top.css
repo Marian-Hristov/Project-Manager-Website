@@ -12,7 +12,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    transition: color .3s;
+    transition: color .25s;
 }
 
 /* Logo */
