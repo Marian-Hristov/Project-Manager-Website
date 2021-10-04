@@ -8,7 +8,10 @@
 }
 
 .nav-input-container input:hover{
-    color: #ee6c4dff;
+    background: linear-gradient(to right, #ee3410, #f55f05);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     transition: color .3s;
 }
 
@@ -59,7 +62,7 @@ header nav {
 .nav-input-container{
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    width: 50%;  
 }
 
 /* Search bar */
@@ -111,6 +114,7 @@ header nav {
 
 .search-bar svg:hover{
     color: #0080ff;
+    
 }
 
 .search-bar svg * {
