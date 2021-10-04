@@ -1,0 +1,96 @@
+footer{
+    width: 100%;
+    height: 50%;
+    background-color: hsl(0, 0%, 13%);
+    padding-bottom: 5%;
+}
+footer h1{
+    color: #fff;
+    font-family: 'Century Gothic';
+}
+footer h3{
+    color: #777;
+    font-family: 'Bodoni MT';
+    font-weight: 100;
+}
+
+.separator{
+    background-color: #2d2d2d;
+    height: .2em;
+    width: 50%;
+    margin: 0 auto;
+}
+/* Temporary until marian fixes the pop up */
+.pop-up{
+    overflow: auto;
+}
+
+/* Footer links */
+footer div a:link{
+    text-decoration: none;
+}
+footer div a:visited{
+    text-decoration: none;
+}
+footer div a:active{
+    text-decoration: none;
+}
+footer div a:hover{
+    text-decoration: none;
+}
+
+/* Bottom links */
+footer div{
+    margin-top: 1%;
+}
+footer div figure{
+    display: inline;
+}
+
+/* Gitlab Logo */
+
+#git-lab-svg{
+    color: #fff;
+    width: 5%;
+}
+
+#git-lab-svg:hover{
+    color: #de3168;
+    transition: color .3s;
+}
+
+/* GitHub Links */
+footer div a img{
+    width: 5%;
+    border-radius: 100%;
+}
+
+/* Hover text */
+footer div figure {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+footer div a svg, footer div a img{
+    max-width: 100%;
+}
+
+footer div figure .caption{
+    position: absolute;
+    display: inline;
+    visibility: hidden;
+    top: -2em;
+    left: 4em;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    font-family: 'Century Gothic';
+    transition: all .2s ease-in-out;
+}
+
+footer div figure:hover .caption{
+    visibility: visible;
+    opacity: 1;
+    color: #fff;
+}
