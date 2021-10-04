@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "request": "launch",
+            "type": "vscode-edge-devtools.debug",
+            "url": "http://10.230.113.139:5500/html/main.html" // Provide your project's url to finish configuring
+        }
+    ]
+}

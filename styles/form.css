@@ -10,6 +10,17 @@ fieldset {
 }
 
 .field {
+    width: auto;
+    padding: 1em;
     display: flex;
     flex-direction: column;
+}
+
+#project-specifications {
+    flex-direction: column;
+}
+
+.field textarea {
+    min-width: 100%;
+    max-width: 100%;
 }

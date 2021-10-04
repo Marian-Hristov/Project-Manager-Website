@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/top.css">
     <link rel="stylesheet" href="../styles/popup.css">
     <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="../styles/table.css">
     <title>Project Manager</title>
 </head>
 
@@ -52,7 +53,7 @@
         <section class="table-section">
             <table>
                 <thead>
-                    <thead>
+                    <tr>
                         <th>ID</th>
                         <th>Owner</th>
                         <th>Title</th>
@@ -61,9 +62,50 @@
                         <th>Hours</th>
                         <th>Rate</th>
                         <th>Description</th>
-                    </thead>
+                    </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <tr>
+                        <td>proj1</td>
+                        <td>nasr</td>
+                        <td>js320 prog</td>
+                        <td>pract</td>
+                        <td>completed</td>
+                        <td>20</td>
+                        <td>1.5</td>
+                        <td>2 weeks</td>
+                    </tr>
+                    <tr>
+                        <td>proj2</td>
+                        <td>tricia</td>
+                        <td>git lab and ci-cd</td>
+                        <td>pract</td>
+                        <td>planned</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>gitlab thingy information</td>
+                    </tr>
+                    <tr>
+                        <td>proj 3</td>
+                        <td>ihallam</td>
+                        <td>maths</td>
+                        <td>theory</td>
+                        <td>ongoing</td>
+                        <td>5</td>
+                        <td>1</td>
+                        <td>logic thingy</td>
+                    </tr>
+                    <tr>
+                        <td>proj 4</td>
+                        <td>basr</td>
+                        <td>physics</td>
+                        <td>fund_res</td>
+                        <td>planned</td>
+                        <td>20</td>
+                        <td>10</td>
+                        <td>quantiy information blabla</td>
+                    </tr>
+                </tbody>
             </table>
             <section class="pop-up">
                 <div class="pop-up-container">
@@ -127,7 +169,7 @@
                                         <!-- ! Ask nas if we can use datalist element -->
                                         <input list="project-status">
                                         <datalist id="project-status">
-                                            <option value="Not Started"></option>
+                                            <option value="Planned"></option>
                                             <option value="Ongoing"></option>
                                             <option value="Completed"></option>
                                         </datalist>
@@ -141,9 +183,11 @@
                                     </select> -->
                                 </fieldset>
                                 <fieldset id="project-specifications">
-                                    <label for="project-description">Project Description</label>
-                                    <textarea name="project-description" id="project-description" cols="30"
-                                        rows="10"></textarea>
+                                    <div class="field">
+                                        <label for="project-description">Project Description</label>
+                                        <textarea name="project-description" id="project-description" cols="30"
+                                            rows="10"></textarea>
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>
