@@ -49,6 +49,7 @@ td {
 thead {
     padding: 0.5em;
     letter-spacing: 1px;
+    background: #AAAAAA;
 }
 
 .table-info {
