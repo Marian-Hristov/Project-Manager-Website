@@ -51,10 +51,6 @@ thead {
     letter-spacing: 1px;
 }
 
-tbody tr:last-child td {
-    border: none;
-}
-
 .table-info {
     width: 100%;
     color: #293241ff;
