@@ -1,29 +1,39 @@
 /* Rounding the borders of the table  */
-table tr:first-child th:first-child {
+thead tr:first-child th:first-child {
     border-top-left-radius: 0.3em;
 }
 
-table tr:first-child th:last-child {
+thead tr:first-child th:last-child {
     border-top-right-radius: 0.3em;
 }
 
-table tr:last-child td:last-child {
+/* table tr:last-child td:last-child {
     border-bottom-right-radius: 0.3em;
 }
 
 table tr:last-child td:first-child {
     border-bottom-left-radius: 0.3em;
+} */
+
+.table-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
 }
 
 table {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 80%;
     height: 100%;
     position: relative;
     border-collapse: separate;
     border-spacing: 0px;
-    border-radius: 1em;
-    color: #F2F2F2;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+    color: #293241ff;
+    min-width: 1000px;
+    margin: 0 auto;
+    background: #ddd;
 }
 
 th,
@@ -31,25 +41,75 @@ td {
     font-weight: normal;
     width: fit-content;
     text-align: left;
-    padding: 0.4rem;
+    padding: 0.7rem 0.4rem;
     padding-left: 0.7rem;
-    border-bottom: 1px solid #2D2D2D;
+    border-bottom: 1px solid #3d5a80ff;
 }
 
 thead {
-    /* height: 7%;
-    width: 78.%;
-    position: fixed; */
     padding: 0.5em;
     letter-spacing: 1px;
-    background: #454545;
-}
-
-tbody {
-    width: 100%;
-    background: #303030;
 }
 
 tbody tr:last-child td {
     border: none;
+}
+
+.table-info {
+    width: 100%;
+    color: #293241ff;
+}
+
+.table-info-container {
+    background: #ddd;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+}
+
+.results-number {
+    display: flex;
+}
+
+.results-number span {
+    margin: auto;
+    padding: 0 0.7em;
+}
+
+.table-page-change {
+    display: flex;
+}
+
+.table-page-change ul {
+    list-style: none;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.table-page-change li {
+    display: flex;
+    align-items: center;
+}
+
+.table-page-change svg {
+    height: 1em;
+    width: 1em;
+    margin: 0.5em;
+}
+
+.table-page-change-input {
+    display: flex;
+}
+
+.table-page-change-input input {
+    padding: 0.4em;
+    width: min-content;
+}
+
+.table-page-change-input span {
+    margin: auto 0 auto 0.4em;
 }

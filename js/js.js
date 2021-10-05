@@ -9,6 +9,6 @@ function lol(a, b) {
 
 const body = document.querySelector('tbody');
 
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 10; i++) {
     body.innerHTML += "<tr><td>proj1</td><td>nasr</td><td>js320 prog</td><td>pract</td><td>completed</td><td>20</td><td>1.5</td><td>2 weeks</td></tr>"
 }
