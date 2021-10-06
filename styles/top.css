@@ -1,7 +1,30 @@
 /* Top buttons */
+
+/* Nav bar */
+header nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .8em solid #293241ff;
+    padding: 1% 2%;
+    margin-bottom: 2%;
+}
+
+/* Nav bar buttons container */
+.nav-input-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.flex-min-space{
+    flex: 0 0 10px;
+}
+
 .nav-input-container input {
     height: 40%;
-    font-size: 1.5vw;
+    font-size: calc(7px + 1vw);
     color: #3d5a80ff;
     border: none;
     background-color: inherit;
@@ -49,25 +72,6 @@
 }
 
 
-
-/* Nav bar */
-header nav {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1em solid #293241ff;
-    padding: 1% 2%;
-    margin-bottom: 2%;
-}
-
-/* Nav bar buttons container */
-.nav-input-container {
-    display: flex;
-    justify-content: space-evenly;
-    width: 50%;
-}
-
 /* Search bar */
 .searchbar-section {
     width: 40%;
@@ -99,7 +103,7 @@ header nav {
     margin: 0 0 0 0.5em;
     border: none;
     width: 100%;
-    height: 100%;
+    height: 80%;
     font-size: 2em;
     font-size: 2vw;
     color: #495057;
