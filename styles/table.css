@@ -50,6 +50,7 @@ td {
 }
 
 thead {
+    background: #AAAAAA;
     padding: 0.5em;
     letter-spacing: 1px;
 }
