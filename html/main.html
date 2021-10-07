@@ -31,9 +31,12 @@
                     <h1>Manager</h1>
                 </span>
                 <span class="nav-input-container">
-                    <input type="button" value="Write Local"><div class="flex-min-space"></div>
-                    <input type="button" value="Append Local"><div class="flex-min-space"></div>
-                    <input type="button" value="Clear Local"><div class="flex-min-space"></div>
+                    <input type="button" value="Write Local">
+                    <div class="flex-min-space"></div>
+                    <input type="button" value="Append Local">
+                    <div class="flex-min-space"></div>
+                    <input type="button" value="Clear Local">
+                    <div class="flex-min-space"></div>
                     <input type="button" value="Read Local">
                 </span>
             </nav>
@@ -79,7 +82,14 @@
                     <div class="table-page-change">
                         <ul>
                             <li>
-                                <svg class="icon" viewBox="0 0 16 16"><title>Go to previous page</title><g stroke-width="1.5" stroke="currentColor"><polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="9.5,3.5 5,8 9.5,12.5 "></polyline></g></svg>
+                                <svg class="icon" viewBox="0 0 16 16">
+                                    <title>Go to previous page</title>
+                                    <g stroke-width="1.5" stroke="currentColor">
+                                        <polyline fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10"
+                                            points="9.5,3.5 5,8 9.5,12.5 "></polyline>
+                                    </g>
+                                </svg>
                             </li>
                             <li>
                                 <span class="table-page-change-input">
@@ -89,103 +99,118 @@
                                 </span>
                             </li>
                             <li>
-                                <svg class="icon" viewBox="0 0 16 16"><title>Go to next page</title><g stroke-width="1.5" stroke="currentColor"><polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="6.5,3.5 11,8 6.5,12.5 "></polyline></g></svg>
+                                <svg class="icon" viewBox="0 0 16 16">
+                                    <title>Go to next page</title>
+                                    <g stroke-width="1.5" stroke="currentColor">
+                                        <polyline fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-miterlimit="10"
+                                            points="6.5,3.5 11,8 6.5,12.5 "></polyline>
+                                    </g>
+                                </svg>
                             </li>
                         </ul>
                     </div>
                 </div>
             </section>
-            <section class="pop-up">
-                <div class="pop-up-container">
-                    <div class="pop-up-box">
-                        <nav>
-                            <div class="pop-up-title">
-                                <p>Title</p>
-                            </div>
-                            <div class="pop-up-close">
-                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times-circle"
-                                    class="svg-inline--fa fa-times-circle fa-w-16" role="img"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                    <path fill="currentColor"
-                                        d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </nav>
-                        <div class="pop-up-info-container">
-                            <form>
-                                <fieldset id="project-identification">
-                                    <div class="field">
-                                        <label for="project-id">Project ID</label>
-                                        <input type="text" name="project-id" id="project-id" placeholder="Enter ID"
-                                            required>
-                                    </div>
-                                    <div class="field">
-                                        <label for="project-owner">Project Owner</label>
-                                        <input type="text" name="project-owner" id="project-owner"
-                                            placeholder="Enter Owner" required>
-                                    </div>
-                                </fieldset>
-                                <fieldset id="project-titling">
-                                    <div class="field">
-                                        <label for="project-title">Title</label>
-                                        <input type="text" name="project-title" id="project-title"
-                                            placeholder="Enter Title" required>
-                                    </div>
-                                    <div class="field">
-                                        <label for="project-category">Category</label>
-                                        <select name="project-category" id="project-category" required>
-                                            <!-- Not sure about the values of the options -->
-                                            <option value="select">Select A Category</option>
-                                            <option value="optional">Optional</option>
-                                            <option value="practical">Practical</option>
-                                            <option value="necessary">Necessary</option>
-                                        </select>
-                                    </div>
-                                </fieldset>
-                                <fieldset id="project-pay">
-                                    <div class="field">
-                                        <label for="project-hours">Hours</label>
-                                        <input type="number" name="project-hours" id="project-hours" min="1" required>
-                                    </div>
-                                    <div class="field">
-                                        <label for="project-rate">Rate</label>
-                                        <input type="number" name="project-rate" id="project-rate" min="0" required>
-                                    </div>
-                                    <div class="field">
-                                        <label for="project-status">Status</label>
-                                        <!-- ! Ask nas if we can use datalist element -->
-                                        <input list="project-status">
-                                        <datalist id="project-status">
-                                            <option value="Planned"></option>
-                                            <option value="Ongoing"></option>
-                                            <option value="Completed"></option>
-                                        </datalist>
-                                    </div>
-                                    <!-- <select name="project-status" id="project-status">
+        </section>
+        <section class="pop-up">
+            <div class="pop-up-container">
+                <div class="pop-up-box">
+                    <nav>
+                        <div class="pop-up-title">
+                            <p>Title</p>
+                        </div>
+                        <div class="pop-up-close">
+                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times-circle"
+                                class="svg-inline--fa fa-times-circle fa-w-16" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z">
+                                </path>
+                            </svg>
+                        </div>
+                    </nav>
+                    <div class="pop-up-info-container">
+                        <form>
+                            <fieldset id="project-identification">
+                                <div class="field">
+                                    <label for="project-id">Project ID</label>
+                                    <input type="text" name="project-id" id="project-id" placeholder="Enter ID"
+                                        required>
+                                </div>
+                                <div class="field">
+                                    <label for="project-owner">Project Owner</label>
+                                    <input type="text" name="project-owner" id="project-owner" placeholder="Enter Owner"
+                                        required>
+                                </div>
+                            </fieldset>
+                            <fieldset id="project-titling">
+                                <div class="field">
+                                    <label for="project-title">Title</label>
+                                    <input type="text" name="project-title" id="project-title" placeholder="Enter Title"
+                                        required>
+                                </div>
+                                <div class="field">
+                                    <label for="project-category">Category</label>
+                                    <!-- <select name="project-category" id="project-category" required>
+                                        Not sure about the values of the options 
+                                        <option value="select">Select A Category</option>
+                                        <option value="optional">Optional</option>
+                                        <option value="practical">Practical</option>
+                                        <option value="necessary">Necessary</option>
+                                    </select> -->
+                                    <input list="project-category" placeholder="Choose a category">
+                                    <datalist id="project-category">
+                                        <option>Optional</option>
+                                        <option>Practical</option>
+                                        <option>Necessary</option>
+                                    </datalist>
+                                </div>
+                            </fieldset>
+                            <fieldset id="project-pay">
+                                <div class="field">
+                                    <label for="project-hours">Hours</label>
+                                    <input type="number" name="project-hours" id="project-hours" min="1"
+                                        placeholder="Enter hours" required>
+                                </div>
+                                <div class="field">
+                                    <label for="project-rate">Rate</label>
+                                    <input type="number" name="project-rate" id="project-rate" min="0"
+                                        placeholder="Enter rate" required>
+                                </div>
+                                <div class="field">
+                                    <label for="project-status">Status</label>
+                                    <!-- ! Ask nas if we can use datalist element -->
+                                    <input list="project-status" placeholder="Choose a status">
+                                    <datalist id="project-status">
+                                        <option value="Planned"></option>
+                                        <option value="Ongoing"></option>
+                                        <option value="Completed"></option>
+                                    </datalist>
+                                </div>
+                                <!-- <select name="project-status" id="project-status">
                                         Not sure about the values of the options
                                         <option value="select">Select A Status</option>
                                         <option value="notStarted">Not Started</option>
                                         <option value="ongoing">Ongoing</option>
                                         <option value="completed">Completed</option>
                                     </select> -->
-                                </fieldset>
-                                <fieldset id="project-specifications">
-                                    <div class="field">
-                                        <label for="project-description">Project Description</label>
-                                        <textarea name="project-description" id="project-description" cols="30"
-                                            rows="10"></textarea>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        <div class="pop-up-action-container">
-                            <input type="button" value="Edit">
-                            <input type="button" value="Delete">
-                        </div>
+                            </fieldset>
+                            <fieldset id="project-specifications">
+                                <div class="field">
+                                    <label for="project-description">Project Description</label>
+                                    <textarea name="project-description" id="project-description" cols="30"
+                                        rows="10"></textarea>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="pop-up-action-container">
+                        <input type="button" value="Edit">
+                        <input type="button" value="Delete">
                     </div>
                 </div>
-            </section>
+            </div>
         </section>
         <footer>
             <h3>Like what you see?</h3>
@@ -196,7 +221,13 @@
             <div>
                 <figure>
                     <a href="https://gitlab.com/marian.hristov/project1" target="_blank">
-                        <svg id="git-lab-svg" aria-hidden="true" color="currentColor" focusable="false" data-prefix="fab" data-icon="gitlab" class="svg-inline--fa fa-gitlab fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88l94.3 294 94.3-294zm349.4 88l-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z"></path></svg>
+                        <svg id="git-lab-svg" aria-hidden="true" color="currentColor" focusable="false"
+                            data-prefix="fab" data-icon="gitlab" class="svg-inline--fa fa-gitlab fa-w-16" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88l94.3 294 94.3-294zm349.4 88l-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z">
+                            </path>
+                        </svg>
                     </a>
                     <span class="caption">See the code</span>
 
