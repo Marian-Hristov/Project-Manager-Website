@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background-color: #f8f9fa;
+    background-color: #f1f1f1;
 }
 
 html,
@@ -30,10 +30,7 @@ footer {
 }
 
 .table-section {
-    position: relative;
     height: max-content;
-    width: 100%;
     margin: 2rem auto;
-    flex-grow: 1;
     font-family: Arial, Helvetica, sans-serif;
 }
