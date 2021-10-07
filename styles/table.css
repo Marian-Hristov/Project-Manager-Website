@@ -7,20 +7,22 @@ thead tr:first-child th:last-child {
     border-top-right-radius: 0.3em;
 }
 
-/* table tr:last-child td:last-child {
-    border-bottom-right-radius: 0.3em;
+.table-section{
+    width: 80%;
+    box-shadow: 0 0.1px 0.3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12);
+    border-radius: .3em;
+    background-color: #fff;
 }
 
-table tr:last-child td:first-child {
-    border-bottom-left-radius: 0.3em;
-} */
-
-
-/* Making the Action context menu centered */
+tbody{
+    border-bottom: 1.5px solid hsl(270, 3%, 86%);
+    border-top: 1.5px solid hsl(270, 3%, 86%);
+    color: #4b4b4bec;
+}
 
 .table-container {
-    width: 80%;
-    margin: 0 auto;
+    width: 95%;
+    margin: 0 2%;
     overflow-x: auto;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
@@ -28,16 +30,31 @@ table tr:last-child td:first-child {
 
 table {
     height: 100%;
-    position: relative;
-    border-collapse: separate;
+    width: 100%;
+    border-collapse: collapse;
     border-spacing: 0px;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
     color: #293241ff;
-    min-width: 1000px;
+    min-width: 800px;
     margin: 0 auto;
-    background: #ddd;
+    background: #fff;
 }
+
+.table-container::-webkit-scrollbar{
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb{
+    background: #111;
+    border-radius: 10px;
+}
+
+
 
 th,
 td {
@@ -46,18 +63,23 @@ td {
     text-align: left;
     padding: 0.7rem 0.4rem;
     padding-left: 0.7rem;
-    border-bottom: 1px solid #3d5a80ff;
+}
+td{
+    border-bottom: 1.5px solid hsl(300, 4%, 95%);
+}
+
+th {
+    color: #000;
 }
 
 thead {
-    background: #AAAAAA;
     padding: 0.5em;
     letter-spacing: 1px;
 }
 
 /* The action context menu */
-tbody tr td:last-child button {
-    padding: 5%;
+tbody tr td:last-child button{
+    padding: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +96,7 @@ tbody tr td:last-child button svg {
 
 tbody tr td:last-child button:hover {
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.178);
+    background-color: rgba(88, 88, 88, 0.178);
 }
 
 tbody tr:last-child td {
@@ -83,14 +105,11 @@ tbody tr:last-child td {
 
 .table-info {
     width: 100%;
-    color: #293241ff;
+    color: #000;
 }
 
 .table-info-container {
-    background: #AAAAAA;
-    width: 80%;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     border-bottom-left-radius: 0.3em;
@@ -99,6 +118,7 @@ tbody tr:last-child td {
 
 .results-number {
     display: flex;
+    margin-left: 3%;
 }
 
 .results-number span {
@@ -108,6 +128,7 @@ tbody tr:last-child td {
 
 .table-page-change {
     display: flex;
+    margin-right: 3%;
 }
 
 .table-page-change ul {
@@ -140,4 +161,37 @@ tbody tr:last-child td {
 
 .table-page-change-input span {
     margin: auto 0 auto 0.4em;
+}
+
+/* The top menu of the table */
+.table-search{
+    margin-left: 2%;
+}
+.table-search svg{
+    width: 40px;
+    height: 40px;
+    color: rgb(110, 110, 110);
+    padding: 5px;
+}
+
+.table-search svg:hover{
+    border-radius: 50%;
+    background-color: rgba(199, 199, 199, 0.178);
+    color: #000;
+    transition: color 0.15s, background-color 0.15s;
+}
+
+.table-search button {
+    background-color: inherit;
+    border:none;
+}
+
+.table-title{
+    margin-left: 2%;
+    color: rgba(70, 70, 70, 0.767);
+}
+
+.table-title h1{
+    margin-bottom: 10px;
+    font-weight: 500;
 }

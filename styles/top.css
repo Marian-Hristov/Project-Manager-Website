@@ -1,4 +1,15 @@
-/* Top buttons */
+header{
+    position: fixed;
+    top: 0;    
+    padding: 1% 2%;
+    background-color: #fff;
+    height: 10%;
+    box-shadow: 0 4px 1px -2px #b1b1b154;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
 
 /* Nav bar */
 header nav {
@@ -6,9 +17,6 @@ header nav {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    border-bottom: .8em solid #293241ff;
-    padding: 1% 2%;
-    margin-bottom: 2%;
 }
 
 /* Nav bar buttons container */
@@ -75,7 +83,7 @@ header nav {
 /* Search bar */
 .searchbar-section {
     width: 40%;
-    margin: 0 auto;
+    margin: 10% auto 0 auto;
     min-height: 40px;
     height: 8%;
     display: flex;
