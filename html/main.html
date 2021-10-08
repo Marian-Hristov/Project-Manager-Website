@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="../styles/table.css">
     <link rel="stylesheet" href="../styles/bottom.css">
+    <script src="../js/validation.js"></script>
     <script src="../js/popup.js"></script>
     <script src="../js/main.js"></script>
     <title>Project Manager</title>
@@ -172,14 +173,7 @@
                                 </div>
                                 <div class="field">
                                     <label for="project-category">Category</label>
-                                    <!-- <select name="project-category" id="project-category" required>
-                                        Not sure about the values of the options 
-                                        <option value="select">Select A Category</option>
-                                        <option value="optional">Optional</option>
-                                        <option value="practical">Practical</option>
-                                        <option value="necessary">Necessary</option>
-                                    </select> -->
-                                    <input list="project-category" placeholder="Choose a category">
+                                    <input list="project-category" placeholder="Choose a category" required>
                                     <datalist id="project-category">
                                         <option>Optional</option>
                                         <option>Practical</option>
@@ -201,26 +195,19 @@
                                 <div class="field">
                                     <label for="project-status">Status</label>
                                     <!-- ! Ask nas if we can use datalist element -->
-                                    <input list="project-status" placeholder="Choose a status">
+                                    <input list="project-status" placeholder="Choose a status" required>
                                     <datalist id="project-status">
                                         <option value="Planned"></option>
                                         <option value="Ongoing"></option>
                                         <option value="Completed"></option>
                                     </datalist>
                                 </div>
-                                <!-- <select name="project-status" id="project-status">
-                                        Not sure about the values of the options
-                                        <option value="select">Select A Status</option>
-                                        <option value="notStarted">Not Started</option>
-                                        <option value="ongoing">Ongoing</option>
-                                        <option value="completed">Completed</option>
-                                    </select> -->
                             </fieldset>
                             <fieldset id="project-specifications">
                                 <div class="field">
                                     <label for="project-description">Project Description</label>
-                                    <textarea name="project-description" id="project-description" cols="30"
-                                        rows="10"></textarea>
+                                    <textarea name="project-description" id="project-description" cols="30" rows="10"
+                                        required></textarea>
                                 </div>
                             </fieldset>
                         </form>
