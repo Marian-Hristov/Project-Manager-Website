@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="../styles/table.css">
     <link rel="stylesheet" href="../styles/bottom.css">
+
+    <!-- TODO TESTING PURPORSE TO BE DELETED -->
+    <script src="../js/js.js" defer></script>
+    <script src="../js/table.js" defer></script>
+    <script src="../js/eventListeners.js" defer></script>
+
     <title>Project Manager</title>
 </head>
 
@@ -62,7 +68,7 @@
                     <h1>Projects</h1>
                 </div>
                 <div class="table-search">
-                    <button>
+                    <button id="table-search-button">
                         <svg xmlns="http://www.w3.org/2000/svg" color="currentColor"
                             class="icon icon-tabler icon-tabler-search" viewBox="-3 -3 30 30" stroke-width="2"
                             stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -89,6 +95,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>proj1</td>
+                            <td>nasr</td>
+                            <td>js320 prog</td>
+                            <td>pract</td>
+                            <td>completed</td>
+                            <td>20</td>
+                            <td>1.5</td>
+                            <td>2 weeks</td>
+                            <td class="action-box">
+                                <button class="action-button">
+                                    <svg class="icon" viewBox="0 0 16 16">
+                                        <circle cx="8" cy="7.5" r="1.5"></circle>
+                                        <circle cx="1.5" cy="7.5" r="1.5"></circle>
+                                        <circle cx="14.5" cy="7.5" r="1.5"></circle>
+                                    </svg>
+                                </button>
+                                <div>
+                                    <ul>
+                                        <li>edit</li>
+                                        <li>delete</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -270,7 +301,5 @@
         </footer>
     </section>
 </body>
-<!-- TODO TESTING PURPORSE TO BE DELETED -->
-<script src="../js/js.js"></script>
 
 </html>
