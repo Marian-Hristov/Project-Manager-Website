@@ -31,7 +31,9 @@ form input {
 .field textarea {
     resize: vertical;
     min-height: 160px;
-    min-width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 #project-titling {
