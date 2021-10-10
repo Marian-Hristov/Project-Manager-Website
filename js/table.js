@@ -1,40 +1,39 @@
-function showSearchBar(){
-    console.log('this searchbar is shown')
-}
-
 function showActionMenu(event){
-
-    if(event.type=="click" && eventPathHasClass(event.path, "action-button")){
+    if(event.type=="click" && eventPathHasClass(event.composedPath(), "action-button")){
         if(this.classList != undefined){
+            removeClass('active', this);
             this.classList.toggle('active');
-            return;
-        }else{
             return;
         }
     } else if(event.type == "scroll"){
         removeClass('active');
         return;
+    } else if(event.type == "click" && !eventPathHasClass(event.composedPath(), "action-button")){
+        removeClass('active');
     }
-    removeClass('active');
     
 }
-
-function removeClass(className){
+/**
+ * removes a class from all html elements
+ * @param {string} className The name of the class that is going to be rmemoved
+ * @param {HTMLElement} elementException an optional element that is going to be skipped when removing the classes
+ */
+function removeClass(className, elementException){
+    
     const hasElement = document.getElementsByClassName(className);
     for(const element of hasElement){
-        element.classList.remove(className);
-    }
-}
-
-function eventPathContains(event, string){
-    for(const key of event.path){
-        if((key+'').includes(string)){
-            return true;
+        if(elementException != element){
+            element.classList.remove(className);
         }
     }
-    return false;
 }
 
+/**
+ * Checks if an element in the array has the class classname
+ * @param {EventTarget[]} path The path of the element clicked
+ * @param {string} className a string containing the name of the class to be found
+ * @returns if the className is contained in the path
+ */
 function eventPathHasClass(path, className){
     let hasClass = false;
     for(const key of path){

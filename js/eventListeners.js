@@ -1,5 +1,5 @@
 (function(){
-    searchEvent();
+    // searchEvent();
     actionMenuEvent();
     windowEvents();
 })();
