@@ -216,10 +216,7 @@ thead {
     opacity: 0;
     transition: .3s;
     border-radius: 5px;
-    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03),
-        0 3.1px 5.5px rgba(0, 0, 0, 0.08),
-        0 14px 25px rgba(0, 0, 0, 0.12);
-
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
 }
 
 .action-button.active+div {
@@ -229,5 +226,15 @@ thead {
 
 .action-box div ul {
     list-style-type: none;
-    padding: 0;
+    margin: 5px;
+    text-transform: capitalize;
+}
+
+.action-box div ul li {
+    padding: 5px;
+    text-align: left;
+}
+
+.action-box div ul li:first-child {
+    border-bottom: 2px solid #DBDADC;
 }

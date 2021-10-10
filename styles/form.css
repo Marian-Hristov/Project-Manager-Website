@@ -41,11 +41,25 @@ form input {
 }
 
 .valid {
-    border: 2px solid rgba(37, 194, 6, 1);
+    border: 2px solid rgb(37, 194, 6);
     background: rgba(37, 194, 6, 0.15);
 }
 
 .invalid {
     border: 2px solid rgb(255, 3, 3);
     background: rgba(255, 3, 3, 0.1);
+}
+
+form label svg {
+    height: 1em;
+    vertical-align: middle;
+    display: none;
+}
+
+.invalid-svg {
+    color: rgb(255, 3, 3);
+}
+
+.valid-svg {
+    color: rgb(37, 194, 6);
 }

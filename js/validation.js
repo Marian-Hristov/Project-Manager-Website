@@ -1,7 +1,37 @@
+function enableValudationEvents(){
+}
+
+function toggleValidationSVG(id, valid){
+    if(valid){
+        document.querySelector(`label[for="${id}"] svg.valid-svg`).style.display = "initial";
+        document.querySelector(`label[for="${id}"] svg.invalid-svg`).style.display = "none";
+    } else {
+        document.querySelector(`label[for="${id}"] svg.valid-svg`).style.display = "none";
+        document.querySelector(`label[for="${id}"] svg.invalid-svg`).style.display = "initial";
+    }
+}
+
+function toggleValidationMode(selector, valid){
+    let elem = document.querySelector(selector);
+    if(valid){
+        elem.classList.remove("invalid");
+        elem.classList.add("valid");
+    } else {
+        elem.classList.remove("valid");
+        elem.classList.add("invalid");
+    }
+}
+
 function validateString(id){
     let value = document.querySelector(`#${id}`).value;
     // Checking if the string is a string or if it is empty
-    if(value != "" || typeof id != 'string') return true;
+    if(value != "" || typeof id != 'string'){
+        toggleValidationMode(`#${id}`, true);
+        toggleValidationSVG(id, true);
+        return true;
+    }
+    toggleValidationMode(`#${id}`, false);
+    toggleValidationSVG(id, false);
     return false;
 }
 
@@ -14,15 +44,31 @@ function validateNumber(id, min, max){
     } else {
         max = Number(max);
     }
-    if (typeof min == "number" && typeof max == "undefined" && value >= min) return true;
-    if (typeof min == "number" && typeof max == "number" && value >= min && value <= max) return true;
+    if (typeof min == "number" && typeof max == "undefined" && value >= min){
+        toggleValidationMode(`#${id}`, true);
+        toggleValidationSVG(id, true);
+        return true;
+    }
+    if (typeof min == "number" && typeof max == "number" && value >= min && value <= max){
+        toggleValidationMode(`#${id}`, true);
+        toggleValidationSVG(id, true);
+        return true;
+    }
+    toggleValidationMode(`#${id}`, false);
+    toggleValidationSVG(id, false);
     return false;
 }
 
 function validateList(id){
     let value = document.querySelector(`input[list="${id}"]`).value;
     console.log(id, value);
-    if(value == "") return false;
+    if(value == ""){
+        toggleValidationMode(`input[list="${id}"]`, false);
+        toggleValidationSVG(id, false);
+        return false;
+    }
+    toggleValidationMode(`input[list="${id}"]`, true);
+    toggleValidationSVG(id, true);
     return true;
 }
 
