@@ -1,6 +1,6 @@
-header{
+header {
     position: fixed;
-    top: 0;    
+    top: 0;
     padding: 1% 2%;
     background-color: #fff;
     height: 10%;
@@ -9,7 +9,7 @@ header{
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    z-index: 999;
+    z-index: 10;
 }
 
 /* Nav bar */
@@ -27,7 +27,7 @@ header nav {
     width: 50%;
 }
 
-.flex-min-space{
+.flex-min-space {
     flex: 0 0 10px;
 }
 
