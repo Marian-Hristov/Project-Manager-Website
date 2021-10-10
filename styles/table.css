@@ -216,7 +216,7 @@ thead {
     opacity: 0;
     transition: .3s;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 8px;
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12);
 }
 
 .action-button.active+div {
