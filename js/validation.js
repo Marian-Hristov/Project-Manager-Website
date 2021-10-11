@@ -1,37 +1,28 @@
-/**
- *
- *
- */
 function enableValudationEvents() {
     let strings = ["project-id", "project-owner", "project-title", "project-description"];
     let numbers = ["project-hours", "project-rate"];
     let lists = ["project-category", "project-status"];
     strings.forEach(id => {
-        document.querySelector(`#${id}`).addEventListener("input", () => {
-            validateString(id);
+        document.querySelector(`#${id}`).addEventListener("change", () => {
+            validateString(id, true);
         })
     })
 
     numbers.forEach(id => {
-        document.querySelector(`#${id}`).addEventListener("input", () => {
+        document.querySelector(`#${id}`).addEventListener("change", () => {
             let min = document.querySelector(`#${id}`).min;
             let max = document.querySelector(`#${id}`).max;
-            validateNumber(id, min, max);
+            validateNumber(id, min, max, true);
         })
     })
 
     lists.forEach(id => {
-        document.querySelector(`input[list="${id}"]`).addEventListener("input", () => {
-            validateList(id);
+        document.querySelector(`input[list="${id}"]`).addEventListener("change", () => {
+            validateList(id, true);
         })
     })
 }
-/**
- *
- *
- * @param {*} id
- * @param {*} valid
- */
+
 function toggleValidationSVG(id, valid) {
     if (valid) {
         document.querySelector(`label[for="${id}"] svg.valid-svg`).style.display = "initial";
@@ -41,12 +32,7 @@ function toggleValidationSVG(id, valid) {
         document.querySelector(`label[for="${id}"] svg.invalid-svg`).style.display = "initial";
     }
 }
-/**
- *
- *
- * @param {*} selector
- * @param {*} valid
- */
+
 function toggleValidationMode(selector, valid) {
     let elem = document.querySelector(selector);
     if (valid) {
@@ -57,35 +43,29 @@ function toggleValidationMode(selector, valid) {
         elem.classList.add("invalid");
     }
 }
-/**
- *
- *
- * @param {*} id
- * @return {*} 
- */
-function validateString(id) {
+
+function showFeedback(id, selector, valid, show) {
+    if (show) {
+        toggleValidationMode(selector, valid);
+        toggleValidationSVG(id, valid);
+    }
+}
+
+function validateString(id, feedBackShown) {
     let value = document.querySelector(`#${id}`).value;
     // Checking if the string is a string or if it is empty
     if (value != "" || typeof id != 'string') {
-        toggleValidationMode(`#${id}`, true);
-        toggleValidationSVG(id, true);
+        showFeedback(id, `#${id}`, true, feedBackShown);
+        validateAll();
         return true;
     }
-    toggleValidationMode(`#${id}`, false);
-    toggleValidationSVG(id, false);
+    showFeedback(id, `#${id}`, false, feedBackShown);
+    validateAll();
     return false;
 }
 
-/**
- *
- *
- * @param {*} id
- * @param {*} min
- * @param {*} max
- * @return {*} 
- */
 // TODO Define a default value of undefined for max
-function validateNumber(id, min, max) {
+function validateNumber(id, min, max, feedBackShown) {
     let value = document.querySelector(`#${id}`).value;
     min = Number(min);
     if (max == "") {
@@ -94,28 +74,22 @@ function validateNumber(id, min, max) {
         max = Number(max);
     }
     if (typeof min == "number" && typeof max == "undefined" && value >= min) {
-        toggleValidationMode(`#${id}`, true);
-        toggleValidationSVG(id, true);
+        showFeedback(id, `#${id}`, true, feedBackShown);
+        validateAll()
         return true;
     }
     if (typeof min == "number" && typeof max == "number" && value >= min && value <= max) {
-        toggleValidationMode(`#${id}`, true);
-        toggleValidationSVG(id, true);
+        showFeedback(id, `#${id}`, true, feedBackShown);
+        validateAll()
         return true;
     }
-    toggleValidationMode(`#${id}`, false);
-    toggleValidationSVG(id, false);
+    showFeedback(id, `#${id}`, false, feedBackShown);
     return false;
 }
-/**
- *
- *
- * @param {*} id
- * @return {*} 
- */
-function validateList(id) {
+
+function validateList(id, feedBackShown) {
     let value = document.querySelector(`input[list="${id}"]`).value;
-    let optionElems = document.querySelectorAll("#project-status option");
+    let optionElems = document.querySelectorAll(`#${id} option`);
     let found = false;
     let options = [];
     optionElems.forEach(option => {
@@ -124,25 +98,18 @@ function validateList(id) {
 
     options.forEach(option => {
         if (value == option && !found) {
-            console.log(value == option);
-            toggleValidationMode(`input[list="${id}"]`, true);
-            toggleValidationSVG(id, true);
+            showFeedback(id, `input[list="${id}"]`, true, feedBackShown);
             found = true;
         }
     })
     if (!found) {
-        toggleValidationMode(`input[list="${id}"]`, false);
-        toggleValidationSVG(id, false);
+        showFeedback(id, `input[list="${id}"]`, false, feedBackShown);
         return false;
     } else {
         return true;
     }
 }
-/**
- * 
- *
- * @return {*} 
- */
+
 function validateAll() {
     let flag = {
         "project-id": false,
@@ -160,7 +127,7 @@ function validateAll() {
 
     strings.forEach(id => {
         for (let k of Object.keys(flag)) {
-            if (k == id && validateString(id)) {
+            if (k == id && validateString(id, false)) {
                 flag[k] = true;
             }
         }
@@ -170,7 +137,7 @@ function validateAll() {
         for (let k of Object.keys(flag)) {
             let min = document.querySelector(`#${id}`).min;
             let max = document.querySelector(`#${id}`).max;
-            if (k == id && validateNumber(id, min, max)) {
+            if (k == id && validateNumber(id, min, max, false)) {
                 flag[k] = true;
             }
         }
@@ -178,7 +145,7 @@ function validateAll() {
 
     lists.forEach(id => {
         for (let k of Object.keys(flag)) {
-            if (k == id && validateList(id)) {
+            if (k == id && validateList(id, false)) {
                 flag[k] = true;
             }
         }
