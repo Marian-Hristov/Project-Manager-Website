@@ -1,10 +1,9 @@
 footer {
     width: 100%;
     bottom: 0;
-    height: fit-content;
+    height: max(42%, 200px);
     background-color: hsl(0, 0%, 13%);
     padding-bottom: 1%;
-    padding: 1%;
 }
 
 footer h1 {
