@@ -142,29 +142,79 @@ thead {
 }
 
 /* The top menu of the table */
+
+.table-search-box input:invalid:not(:focus){
+    cursor: pointer;
+}
+
 .table-top {
     display: inline-block;
     margin-left: 2%;
 }
 
-.table-search svg {
+.table-search-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 43px;
+}
+
+.table-search-box button{
+    position: absolute;
+    border: none;
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+    background-color: inherit;
+    right:0;
+}
+.table-search-box input {
+    height: 43px;
+    width: 43px;
+    border: none;
+    border-radius: 50em;
+    cursor: default;
+    transition: all .3s linear;
+}
+
+.table-search-box button:focus{
+    outline: none;
+}
+
+
+.table-search-box button:focus ~ input{
+    padding: 0 10px 0 10px;
+    outline: 2px solid #4441ff;
+    width: 200px;
+    border-radius: 50em;
+    transition: all .3s ease-out;
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 
+    0 3.1px 5.5px rgba(0, 0, 0, 0.08), 
+    0 14px 25px rgba(0, 0, 0, 0.12);
+}
+
+.table-search-box input:focus, .table-search-box input:valid{
+    height: 100%;
+    padding: 0 10px 0 10px;
+    width: 200px;
+    outline: 2px solid #4441ff;
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 
+    0 3.1px 5.5px rgba(0, 0, 0, 0.08), 
+    0 14px 25px rgba(0, 0, 0, 0.12);
+}
+
+.table-search-box svg {
     width: 40px;
     height: 40px;
     color: rgb(110, 110, 110);
-    padding: 5px;
-    cursor: pointer;
+    padding: 3px;
 }
 
-.table-search svg:hover {
+.table-search-box svg:hover {
     border-radius: 50%;
     background-color: rgba(199, 199, 199, 0.178);
     color: #000;
     transition: color 0.15s, background-color 0.15s;
-}
-
-.table-search button {
-    background-color: inherit;
-    border: none;
 }
 
 .table-title {
