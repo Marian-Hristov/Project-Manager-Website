@@ -1,15 +1,19 @@
-function enableValudationEvents(){
+/**
+ *
+ *
+ */
+function enableValudationEvents() {
     let strings = ["project-id", "project-owner", "project-title", "project-description"];
     let numbers = ["project-hours", "project-rate"];
     let lists = ["project-category", "project-status"];
-    strings.forEach( id => {
-        document.querySelector(`#${id}`).addEventListener("change", () => {
+    strings.forEach(id => {
+        document.querySelector(`#${id}`).addEventListener("input", () => {
             validateString(id);
-        } )
+        })
     })
 
-    numbers.forEach( id => {
-        document.querySelector(`#${id}`).addEventListener("change", () => {
+    numbers.forEach(id => {
+        document.querySelector(`#${id}`).addEventListener("input", () => {
             let min = document.querySelector(`#${id}`).min;
             let max = document.querySelector(`#${id}`).max;
             validateNumber(id, min, max);
@@ -17,14 +21,19 @@ function enableValudationEvents(){
     })
 
     lists.forEach(id => {
-        document.querySelector(`input[list="${id}"]`).addEventListener("change", () => {
+        document.querySelector(`input[list="${id}"]`).addEventListener("input", () => {
             validateList(id);
         })
     })
 }
-
-function toggleValidationSVG(id, valid){
-    if(valid){
+/**
+ *
+ *
+ * @param {*} id
+ * @param {*} valid
+ */
+function toggleValidationSVG(id, valid) {
+    if (valid) {
         document.querySelector(`label[for="${id}"] svg.valid-svg`).style.display = "initial";
         document.querySelector(`label[for="${id}"] svg.invalid-svg`).style.display = "none";
     } else {
@@ -32,10 +41,15 @@ function toggleValidationSVG(id, valid){
         document.querySelector(`label[for="${id}"] svg.invalid-svg`).style.display = "initial";
     }
 }
-
-function toggleValidationMode(selector, valid){
+/**
+ *
+ *
+ * @param {*} selector
+ * @param {*} valid
+ */
+function toggleValidationMode(selector, valid) {
     let elem = document.querySelector(selector);
-    if(valid){
+    if (valid) {
         elem.classList.remove("invalid");
         elem.classList.add("valid");
     } else {
@@ -43,11 +57,16 @@ function toggleValidationMode(selector, valid){
         elem.classList.add("invalid");
     }
 }
-
-function validateString(id){
+/**
+ *
+ *
+ * @param {*} id
+ * @return {*} 
+ */
+function validateString(id) {
     let value = document.querySelector(`#${id}`).value;
     // Checking if the string is a string or if it is empty
-    if(value != "" || typeof id != 'string'){
+    if (value != "" || typeof id != 'string') {
         toggleValidationMode(`#${id}`, true);
         toggleValidationSVG(id, true);
         return true;
@@ -57,21 +76,29 @@ function validateString(id){
     return false;
 }
 
+/**
+ *
+ *
+ * @param {*} id
+ * @param {*} min
+ * @param {*} max
+ * @return {*} 
+ */
 // TODO Define a default value of undefined for max
-function validateNumber(id, min, max){
+function validateNumber(id, min, max) {
     let value = document.querySelector(`#${id}`).value;
     min = Number(min);
-    if(max == "") {
+    if (max == "") {
         max = undefined;
     } else {
         max = Number(max);
     }
-    if (typeof min == "number" && typeof max == "undefined" && value >= min){
+    if (typeof min == "number" && typeof max == "undefined" && value >= min) {
         toggleValidationMode(`#${id}`, true);
         toggleValidationSVG(id, true);
         return true;
     }
-    if (typeof min == "number" && typeof max == "number" && value >= min && value <= max){
+    if (typeof min == "number" && typeof max == "number" && value >= min && value <= max) {
         toggleValidationMode(`#${id}`, true);
         toggleValidationSVG(id, true);
         return true;
@@ -80,21 +107,43 @@ function validateNumber(id, min, max){
     toggleValidationSVG(id, false);
     return false;
 }
-
-function validateList(id){
+/**
+ *
+ *
+ * @param {*} id
+ * @return {*} 
+ */
+function validateList(id) {
     let value = document.querySelector(`input[list="${id}"]`).value;
-    console.log(id, value);
-    if(value == ""){
+    let optionElems = document.querySelectorAll("#project-status option");
+    let found = false;
+    let options = [];
+    optionElems.forEach(option => {
+        options.push(option.value);
+    });
+
+    options.forEach(option => {
+        if (value == option && !found) {
+            console.log(value == option);
+            toggleValidationMode(`input[list="${id}"]`, true);
+            toggleValidationSVG(id, true);
+            found = true;
+        }
+    })
+    if (!found) {
         toggleValidationMode(`input[list="${id}"]`, false);
         toggleValidationSVG(id, false);
         return false;
+    } else {
+        return true;
     }
-    toggleValidationMode(`input[list="${id}"]`, true);
-    toggleValidationSVG(id, true);
-    return true;
 }
-
-function validateAll(){
+/**
+ * 
+ *
+ * @return {*} 
+ */
+function validateAll() {
     let flag = {
         "project-id": false,
         "project-owner": false,
@@ -109,31 +158,39 @@ function validateAll(){
     let numbers = ["project-hours", "project-rate"];
     let lists = ["project-category", "project-status"];
 
-    strings.forEach(id => {    
-        for(let k of Object.keys(flag)){
-            if(k == id && validateString(id)) {
+    strings.forEach(id => {
+        for (let k of Object.keys(flag)) {
+            if (k == id && validateString(id)) {
                 flag[k] = true;
             }
         }
     })
 
     numbers.forEach(id => {
-        for(let k of Object.keys(flag)){
+        for (let k of Object.keys(flag)) {
             let min = document.querySelector(`#${id}`).min;
             let max = document.querySelector(`#${id}`).max;
-            if(k == id && validateNumber(id, min, max)) {
+            if (k == id && validateNumber(id, min, max)) {
                 flag[k] = true;
             }
         }
     })
 
     lists.forEach(id => {
-        for(let k of Object.keys(flag)){
-            if(k == id && validateList(id)) {
+        for (let k of Object.keys(flag)) {
+            if (k == id && validateList(id)) {
                 flag[k] = true;
             }
         }
     })
 
-    console.log(flag);
+    for (let k of Object.values(flag)) {
+        console.log(k);
+        if (!k) {
+            document.querySelector(".pop-up-action-container input").setAttribute("disabled", "true");
+            return;
+        }
+    }
+
+    document.querySelector(".pop-up-action-container input").removeAttribute("disabled");
 }
