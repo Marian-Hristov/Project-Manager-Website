@@ -3,22 +3,22 @@ function enableValudationEvents() {
     let numbers = ["project-hours", "project-rate"];
     let lists = ["project-category", "project-status"];
     strings.forEach(id => {
-        document.querySelector(`#${id}`).addEventListener("change", () => {
-            validateString(id, true);
+        document.querySelector(`#${id}`).addEventListener("input", () => {
+            validateString(id, true, true);
         })
     })
 
     numbers.forEach(id => {
-        document.querySelector(`#${id}`).addEventListener("change", () => {
+        document.querySelector(`#${id}`).addEventListener("input", () => {
             let min = document.querySelector(`#${id}`).min;
             let max = document.querySelector(`#${id}`).max;
-            validateNumber(id, min, max, true);
+            validateNumber(id, min, max, true, true);
         })
     })
 
     lists.forEach(id => {
-        document.querySelector(`input[list="${id}"]`).addEventListener("change", () => {
-            validateList(id, true);
+        document.querySelector(`input[list="${id}"]`).addEventListener("input", () => {
+            validateList(id, true, true);
         })
     })
 }
@@ -51,21 +51,29 @@ function showFeedback(id, selector, valid, show) {
     }
 }
 
-function validateString(id, feedBackShown) {
+function startValidationAll(start) {
+    if (start) {
+        validateAll();
+    }
+}
+
+function validateString(id, feedBackShown, allValidation) {
     let value = document.querySelector(`#${id}`).value;
     // Checking if the string is a string or if it is empty
     if (value != "" || typeof id != 'string') {
         showFeedback(id, `#${id}`, true, feedBackShown);
-        validateAll();
+        startValidationAll(allValidation);
         return true;
     }
     showFeedback(id, `#${id}`, false, feedBackShown);
-    validateAll();
+    if (allValidation) {
+        validateAll();
+    }
     return false;
 }
 
 // TODO Define a default value of undefined for max
-function validateNumber(id, min, max, feedBackShown) {
+function validateNumber(id, min, max, feedBackShown, allValidation) {
     let value = document.querySelector(`#${id}`).value;
     min = Number(min);
     if (max == "") {
@@ -75,19 +83,19 @@ function validateNumber(id, min, max, feedBackShown) {
     }
     if (typeof min == "number" && typeof max == "undefined" && value >= min) {
         showFeedback(id, `#${id}`, true, feedBackShown);
-        validateAll()
+        startValidationAll(allValidation);
         return true;
     }
     if (typeof min == "number" && typeof max == "number" && value >= min && value <= max) {
         showFeedback(id, `#${id}`, true, feedBackShown);
-        validateAll()
+        startValidationAll(allValidation);
         return true;
     }
     showFeedback(id, `#${id}`, false, feedBackShown);
     return false;
 }
 
-function validateList(id, feedBackShown) {
+function validateList(id, feedBackShown, allValidation) {
     let value = document.querySelector(`input[list="${id}"]`).value;
     let optionElems = document.querySelectorAll(`#${id} option`);
     let found = false;
@@ -102,10 +110,12 @@ function validateList(id, feedBackShown) {
             found = true;
         }
     })
+
     if (!found) {
         showFeedback(id, `input[list="${id}"]`, false, feedBackShown);
         return false;
     } else {
+        startValidationAll(allValidation);
         return true;
     }
 }
@@ -127,7 +137,7 @@ function validateAll() {
 
     strings.forEach(id => {
         for (let k of Object.keys(flag)) {
-            if (k == id && validateString(id, false)) {
+            if (k == id && validateString(id, false, false)) {
                 flag[k] = true;
             }
         }
@@ -137,7 +147,7 @@ function validateAll() {
         for (let k of Object.keys(flag)) {
             let min = document.querySelector(`#${id}`).min;
             let max = document.querySelector(`#${id}`).max;
-            if (k == id && validateNumber(id, min, max, false)) {
+            if (k == id && validateNumber(id, min, max, false, false)) {
                 flag[k] = true;
             }
         }
@@ -145,14 +155,13 @@ function validateAll() {
 
     lists.forEach(id => {
         for (let k of Object.keys(flag)) {
-            if (k == id && validateList(id, false)) {
+            if (k == id && validateList(id, false, false)) {
                 flag[k] = true;
             }
         }
     })
 
     for (let k of Object.values(flag)) {
-        console.log(k);
         if (!k) {
             document.querySelector(".pop-up-action-container input").setAttribute("disabled", "true");
             return;
