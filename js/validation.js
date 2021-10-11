@@ -1,4 +1,26 @@
 function enableValudationEvents(){
+    let strings = ["project-id", "project-owner", "project-title", "project-description"];
+    let numbers = ["project-hours", "project-rate"];
+    let lists = ["project-category", "project-status"];
+    strings.forEach( id => {
+        document.querySelector(`#${id}`).addEventListener("change", () => {
+            validateString(id);
+        } )
+    })
+
+    numbers.forEach( id => {
+        document.querySelector(`#${id}`).addEventListener("change", () => {
+            let min = document.querySelector(`#${id}`).min;
+            let max = document.querySelector(`#${id}`).max;
+            validateNumber(id, min, max);
+        })
+    })
+
+    lists.forEach(id => {
+        document.querySelector(`input[list="${id}"]`).addEventListener("change", () => {
+            validateList(id);
+        })
+    })
 }
 
 function toggleValidationSVG(id, valid){
