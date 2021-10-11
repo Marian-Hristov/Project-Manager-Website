@@ -98,3 +98,9 @@
     background: black;
     color: white;
 }
+
+.pop-up-action-container input:disabled {
+    border-color: gray;
+    color: gray;
+    background: lightgray;
+}
