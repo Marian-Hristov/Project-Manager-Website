@@ -6,5 +6,5 @@ function setup(){
     enablePopUpClose();
     enableValudationEvents();
     // ! REMOVE openPopUp line
-    openPopUp();
+    openPopUp("action");
 }

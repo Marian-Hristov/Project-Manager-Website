@@ -1,13 +1,18 @@
 function enablePopUpClose() {
-    document.querySelector(".pop-up-close svg").addEventListener("click", closePopUp);
+    let types = ["action", "add"]
+    types.forEach(type => {
+        document.querySelector(`.pop-up.${type} .pop-up-close svg`).addEventListener("click", () => {
+            closePopUp(type);
+        });
+    })
 }
 
-function closePopUp() {
-    document.querySelector(".pop-up").style.display = "none";
+function closePopUp(type) {
+    document.querySelector(`.pop-up.${type}`).style.display = "none";
     document.querySelector(".main-container").style.overflow = "auto";
 }
 
-function openPopUp() {
-    document.querySelector(".pop-up").style.display = "flex";
+function openPopUp(type) {
+    document.querySelector(`.pop-up.${type}`).style.display = "flex";
     document.querySelector(".main-container").style.overflow = "hidden";
 }
