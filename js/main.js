@@ -2,8 +2,8 @@
 
 window.addEventListener("DOMContentLoaded", setup);
 
-function setup(){
-    // enablePopUpClose();
+function setup() {
+    enablePopUpClose();
     // enableValudationEvents();
     // ! REMOVE openPopUp line
     openPopUp("action");
