@@ -202,7 +202,7 @@
                         <form>
                             <fieldset id="project-identification">
                                 <div class="field">
-                                    <label for="project-id">Project ID
+                                    <label for="project-id-action">Project ID
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -218,11 +218,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="text" name="project-id" id="project-id" placeholder="Enter ID"
-                                        required>
+                                    <input type="text" name="project-id-action" id="project-id-action"
+                                        placeholder="Enter ID" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-owner">Project Owner
+                                    <label for="project-owner-action">Project Owner
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -238,13 +238,13 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="text" name="project-owner" id="project-owner" placeholder="Enter Owner"
-                                        required>
+                                    <input type="text" name="project-owner-action" id="project-owner-action"
+                                        placeholder="Enter Owner" required>
                                 </div>
                             </fieldset>
                             <fieldset id="project-titling">
                                 <div class="field">
-                                    <label for="project-title">Title
+                                    <label for="project-title-action">Title
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -260,11 +260,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="text" name="project-title" id="project-title" placeholder="Enter Title"
-                                        required>
+                                    <input type="text" name="project-title-action" id="project-title-action"
+                                        placeholder="Enter Title" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-category">Category
+                                    <label for="project-category-action">Category
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -280,18 +280,18 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input list="project-category" placeholder="Choose a category" required>
-                                    <datalist id="project-category">
-                                        <option value="Practical" ></option>
+                                    <input list="project-category-action" placeholder="Choose a category" required>
+                                    <datalist id="project-category-action">
+                                        <option value="Practical"></option>
                                         <option value="Theoretical"></option>
-                                        <option value="Fundamental research" ></option>
+                                        <option value="Fundamental research"></option>
                                         <option value="Empirical"></option>
                                     </datalist>
                                 </div>
                             </fieldset>
                             <fieldset id="project-pay">
                                 <div class="field">
-                                    <label for="project-hours">Hours
+                                    <label for="project-hours-action">Hours
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -307,11 +307,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="number" name="project-hours" id="project-hours" min="1"
+                                    <input type="number" name="project-hours-action" id="project-hours-action" min="1"
                                         placeholder="Enter hours" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-rate">Rate
+                                    <label for="project-rate-action">Rate
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -327,11 +327,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="number" name="project-rate" id="project-rate" min="1"
+                                    <input type="number" name="project-rate-action" id="project-rate-action" min="1"
                                         placeholder="Enter rate" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-status">Status
+                                    <label for="project-status-action">Status
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -346,8 +346,8 @@
                                                 d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
                                             </path>
                                         </svg></label>
-                                    <input list="project-status" id="" placeholder="Choose a status" required>
-                                    <datalist id="project-status">
+                                    <input list="project-status-action" id="" placeholder="Choose a status" required>
+                                    <datalist id="project-status-action">
                                         <option value="Planned"></option>
                                         <option value="Ongoing"></option>
                                         <option value="Completed"></option>
@@ -356,7 +356,7 @@
                             </fieldset>
                             <fieldset id="project-specifications">
                                 <div class="field">
-                                    <label for="project-description">Project Description
+                                    <label for="project-description-action">Project Description
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -372,14 +372,14 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <textarea name="project-description" id="project-description" cols="30" rows="10"
-                                        required></textarea>
+                                    <textarea name="project-description-action" id="project-description-action"
+                                        cols="30" rows="10" required></textarea>
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                     <div class="pop-up-action-container">
-                        <input type="button" value="Confirm Changes" disabled>
+                        <input id="action-action" type="button" value="Confirm Changes" disabled>
                     </div>
                 </div>
             </div>
@@ -405,7 +405,7 @@
                         <form>
                             <fieldset id="project-identification">
                                 <div class="field">
-                                    <label for="project-id">Project ID
+                                    <label for="project-id-add">Project ID
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -421,11 +421,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="text" name="project-id" id="project-id" placeholder="Enter ID"
+                                    <input type="text" name="project-id-add" id="project-id-add" placeholder="Enter ID"
                                         required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-owner">Project Owner
+                                    <label for="project-owner-add">Project Owner
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -441,13 +441,13 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="text" name="project-owner" id="project-owner" placeholder="Enter Owner"
-                                        required>
+                                    <input type="text" name="project-owner-add" id="project-owner-add"
+                                        placeholder="Enter Owner" required>
                                 </div>
                             </fieldset>
                             <fieldset id="project-titling">
                                 <div class="field">
-                                    <label for="project-title">Title
+                                    <label for="project-title-add">Title
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -463,11 +463,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="text" name="project-title" id="project-title" placeholder="Enter Title"
-                                        required>
+                                    <input type="text" name="project-title-add" id="project-title-add"
+                                        placeholder="Enter Title" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-category">Category
+                                    <label for="project-category-add">Category
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -483,8 +483,8 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input list="project-category" placeholder="Choose a category" required>
-                                    <datalist id="project-category">
+                                    <input list="project-category-add" placeholder="Choose a category" required>
+                                    <datalist id="project-category-add">
                                         <option>Optional</option>
                                         <option>Practical</option>
                                         <option>Necessary</option>
@@ -493,7 +493,7 @@
                             </fieldset>
                             <fieldset id="project-pay">
                                 <div class="field">
-                                    <label for="project-hours">Hours
+                                    <label for="project-hours-add">Hours
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -509,11 +509,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="number" name="project-hours" id="project-hours" min="1"
+                                    <input type="number" name="project-hours-add" id="project-hours-add" min="1"
                                         placeholder="Enter hours" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-rate">Rate
+                                    <label for="project-rate-add">Rate
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -529,11 +529,11 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <input type="number" name="project-rate" id="project-rate" min="1"
+                                    <input type="number" name="project-rate-add" id="project-rate-add" min="1"
                                         placeholder="Enter rate" required>
                                 </div>
                                 <div class="field">
-                                    <label for="project-status">Status
+                                    <label for="project-status-add">Status
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -548,8 +548,8 @@
                                                 d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z">
                                             </path>
                                         </svg></label>
-                                    <input list="project-status" id="" placeholder="Choose a status" required>
-                                    <datalist id="project-status">
+                                    <input list="project-status-add" id="" placeholder="Choose a status" required>
+                                    <datalist id="project-status-add">
                                         <option value="Planned"></option>
                                         <option value="Ongoing"></option>
                                         <option value="Completed"></option>
@@ -558,7 +558,7 @@
                             </fieldset>
                             <fieldset id="project-specifications">
                                 <div class="field">
-                                    <label for="project-description">Project Description
+                                    <label for="project-description-add">Project Description
                                         <svg class="invalid-svg" aria-hidden="true" focusable="false" data-prefix="fas"
                                             data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
@@ -574,14 +574,14 @@
                                             </path>
                                         </svg>
                                     </label>
-                                    <textarea name="project-description" id="project-description" cols="30" rows="10"
-                                        required></textarea>
+                                    <textarea name="project-description-add" id="project-description-add" cols="30"
+                                        rows="10" required></textarea>
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                     <div class="pop-up-action-container">
-                        <input type="button" value="Add Project" disabled>
+                        <input id="action-add" type="button" value="Add Project" disabled>
                     </div>
                 </div>
             </div>
@@ -602,7 +602,6 @@
                         </svg>
                     </a>
                     <span class="caption">See the code</span>
-
                 </figure>
                 <figure>
                     <a href="https://github.com/Strange4" target="_blank">
@@ -610,7 +609,6 @@
                             alt="profile picture of Strange4 github">
                     </a>
                     <span class="caption">Mauricio Murillo</span>
-
                 </figure>
                 <figure>
                     <a href="https://github.com/Marian-Hristov" target="_blank">
@@ -618,7 +616,6 @@
                             alt="profile picture of Marian-Hristov github">
                     </a>
                     <span class="caption">Marian Hristov</span>
-
                 </figure>
             </div>
         </footer>
