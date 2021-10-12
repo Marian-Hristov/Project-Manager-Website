@@ -1,11 +1,3 @@
-// (function () {
-//     // searchEvent();
-//     actionMenuEvent();
-//     windowEvents();
-//     popupEvents();
-// })();
-// above function was removed because this needs to executed in setup
-
 // Table
 function searchEvent() {
     const btn = document.getElementById('table-search-button');

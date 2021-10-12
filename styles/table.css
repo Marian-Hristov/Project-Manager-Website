@@ -220,7 +220,7 @@ thead {
     border: none;
     border-radius: 50em;
     cursor: default;
-    transition: all .3s linear;
+    transition: width .3s linear;
 }
 .table-search-box input::placeholder{
     opacity: 0;
@@ -245,15 +245,19 @@ thead {
     0 14px 25px rgba(0, 0, 0, 0.12);
     
 }
+.table-search-box input:focus{
+    outline: 2px solid #4441ff;
+}
 
 .table-search-box input:focus, .table-search-box input:valid{
     padding: 0 10px 0 10px;
     width: 200px;
-    outline: 2px solid #4441ff;
     box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 
     0 3.1px 5.5px rgba(0, 0, 0, 0.08), 
     0 14px 25px rgba(0, 0, 0, 0.12);
 }
+
+
 
 .table-search-box svg {
     width: 40px;
