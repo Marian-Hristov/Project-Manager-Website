@@ -28,6 +28,9 @@ function windowEvents() {
 // Popup
 
 function popupEvents() {
+    document.querySelector(".table-new-project svg").addEventListener("click", () => {
+        openPopUp("add");
+    });
     enableValidationEvents();
     enablePopUpClose();
 }
