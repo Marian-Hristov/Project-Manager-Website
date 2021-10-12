@@ -152,7 +152,8 @@ thead {
 .table-title {
     margin-left: 2%;
     /* color: rgba(70, 70, 70, 0.767); */
-    color: var(--burnt-sienna);
+    /* color: var(--burnt-sienna); */
+    color: #F5AF00;
 }
 
 .table-title h1 {
@@ -161,43 +162,48 @@ thead {
 }
 
 /* Top buttons */
-.table-buttons{
+.table-buttons {
     display: flex;
-    
+
 }
-.table-new-project{
+
+.table-new-project {
     display: flex;
     justify-content: center;
     align-items: center;
     height: fit-content;
     width: fit-content;
 }
-.table-new-project button{
+
+.table-new-project button {
     background-color: inherit;
     border: none;
     border-radius: 50%;
 
 }
-.table-new-project svg:hover{
+
+.table-new-project svg:hover {
     background-color: rgba(199, 199, 199, 0.178);
     fill: #111;
     border-radius: 50%;
     cursor: pointer;
 }
-.table-new-project svg{
+
+.table-new-project svg {
     padding: 3px;
     width: 35px;
     height: 35px;
-    fill: rgb(110, 110, 110);;
+    fill: rgb(110, 110, 110);
+    ;
 }
 
 /* Search box */
-.table-search-box input:invalid:not(:focus){
+.table-search-box input:invalid:not(:focus) {
     cursor: pointer;
 }
 
 
-.table-search-box{
+.table-search-box {
     display: flex;
     justify-content: right;
     position: relative;
@@ -205,15 +211,16 @@ thead {
     width: fit-content;
 }
 
-.table-search-box button{
+.table-search-box button {
     position: absolute;
     border: none;
     height: 40px;
     width: 40px;
     border-radius: 50%;
     background-color: inherit;
-    right:0;
+    right: 0;
 }
+
 .table-search-box input {
     height: 40px;
     width: 40px;
@@ -222,37 +229,40 @@ thead {
     cursor: default;
     transition: all .3s linear;
 }
-.table-search-box input::placeholder{
+
+.table-search-box input::placeholder {
     opacity: 0;
 }
 
-.table-search-box button:focus{
+.table-search-box button:focus {
     outline: none;
 }
-.table-search-box button:focus ~ input::placeholder{
+
+.table-search-box button:focus~input::placeholder {
     opacity: 1;
 }
 
 
-.table-search-box button:focus ~ input{
+.table-search-box button:focus~input {
     padding: 0 10px 0 10px;
     outline: 2px solid #4441ff;
     width: 200px;
     border-radius: 50em;
     transition: all .3s ease-out;
-    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 
-    0 3.1px 5.5px rgba(0, 0, 0, 0.08), 
-    0 14px 25px rgba(0, 0, 0, 0.12);
-    
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03),
+        0 3.1px 5.5px rgba(0, 0, 0, 0.08),
+        0 14px 25px rgba(0, 0, 0, 0.12);
+
 }
 
-.table-search-box input:focus, .table-search-box input:valid{
+.table-search-box input:focus,
+.table-search-box input:valid {
     padding: 0 10px 0 10px;
     width: 200px;
     outline: 2px solid #4441ff;
-    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 
-    0 3.1px 5.5px rgba(0, 0, 0, 0.08), 
-    0 14px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03),
+        0 3.1px 5.5px rgba(0, 0, 0, 0.08),
+        0 14px 25px rgba(0, 0, 0, 0.12);
 }
 
 .table-search-box svg {
@@ -321,6 +331,7 @@ thead {
     border-radius: 5px;
     box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.09), 0 3.1px 5.5px rgba(0, 0, 0, 0.13), 0 14px 25px rgba(0, 0, 0, 0.12);
 }
+
 .action-menu ul {
     list-style-type: none;
     margin-top: 0px;
@@ -329,27 +340,30 @@ thead {
     border-radius: inherit;
 }
 
-.action-menu svg{
+.action-menu svg {
     margin-right: 2px;
     margin-left: 10px;
 }
+
 .action-menu ul li:last-child svg {
     width: 16px;
     height: 16px;
 }
+
 .action-menu ul li:first-child svg {
     width: 20px;
     height: 20px;
 }
-.action-menu .option{
-    display:flex;
+
+.action-menu .option {
+    display: flex;
     align-items: center;
     border-radius: inherit;
     height: 38px;
     width: 100px;
 }
 
-.action-menu .option:hover{
+.action-menu .option:hover {
     background-color: rgba(0, 0, 0, 0.08);
     cursor: pointer;
 }
