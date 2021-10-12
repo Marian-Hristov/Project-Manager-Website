@@ -28,9 +28,8 @@ function windowEvents() {
 // Popup
 
 function popupEvents() {
-
-    enablePopUpClose();
     enableValidationEvents();
+    enablePopUpClose();
 }
 
 function enableValidationEvents() {
