@@ -3,8 +3,12 @@
 window.addEventListener("DOMContentLoaded", setup);
 
 function setup() {
-    enablePopUpClose();
+    actionMenuEvent();
+    windowEvents();
+    popupEvents();
+    // enablePopUpClose();
     // enableValudationEvents();
-    // ! REMOVE openPopUp line
-    openPopUp("action");
+    // ! REMOVE openPopUp lines
+    // openPopUp("action");
+    // openPopUp("add");
 }
