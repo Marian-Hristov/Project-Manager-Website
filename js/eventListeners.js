@@ -28,8 +28,9 @@ function windowEvents(){
 // Popup
 
 function popupEvents() {
-    document.querySelector(".pop-up-close svg").addEventListener("click", closePopUp);
     enableValidationEvents();
+    enablePopUpClose();
+    document.querySelector(".pop-up-close svg").addEventListener("click", closePopUp);
 }
 
 function enableValidationEvents() {
