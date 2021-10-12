@@ -1,15 +1,13 @@
 function enablePopUpClose() {
     let types = ["action", "add"]
     types.forEach(type => {
-        document.querySelector(`svg.${type}`).addEventListener("click", function () {
+        document.querySelector(`svg.${type}`).addEventListener("click", () => {
             closePopUp(type);
         });
     })
 }
 
 function closePopUp(type) {
-    console.log(type);
-    console.log(`.pop-up.${type}`);
     document.querySelector(`.pop-up.${type}`).style.display = "none";
     document.querySelector(".main-container").style.overflow = "auto";
 }

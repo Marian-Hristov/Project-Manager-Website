@@ -1,26 +1,26 @@
-(function(){
-    // searchEvent();
-    actionMenuEvent();
-    windowEvents();
-    popupEvents();
-
-})();
+// (function () {
+//     // searchEvent();
+//     actionMenuEvent();
+//     windowEvents();
+//     popupEvents();
+// })();
+// above function was removed because this needs to executed in setup
 
 // Table
-function searchEvent(){
+function searchEvent() {
     const btn = document.getElementById('table-search-button');
     // The function handler is defined on the table.js file
     btn.addEventListener('click', showSearchBar)
 }
 
-function actionMenuEvent(){
+function actionMenuEvent() {
     let buttons = document.getElementsByClassName('action-button');
-    for(const element of buttons){
+    for (const element of buttons) {
         element.addEventListener('click', showActionMenu);
     }
 }
 
-function windowEvents(){
+function windowEvents() {
     window.addEventListener('scroll', showActionMenu);
     window.addEventListener('click', showActionMenu);
 }
@@ -28,9 +28,11 @@ function windowEvents(){
 // Popup
 
 function popupEvents() {
+    document.querySelector(".table-new-project svg").addEventListener("click", () => {
+        openPopUp("add");
+    });
     enableValidationEvents();
     enablePopUpClose();
-    document.querySelector(".pop-up-close svg").addEventListener("click", closePopUp);
 }
 
 function enableValidationEvents() {
