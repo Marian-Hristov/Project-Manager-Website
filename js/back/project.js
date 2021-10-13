@@ -10,30 +10,17 @@ const allProjects = getProjects();
  * @param {number} rate rate of the project
  * @param {string} description the description of the project
  */
-function addNewProject(id, owner, title, category, status, hours, rate, description){
-    if(!id || !owner || !title || !category || !status || !hours || !rate || !description){
-        throw new Error("One of the keys for the objects is null when adding a new project.");
-    }
-    const newProject = {
-        id: id,
-        owner: owner,
-        title: title,
-        category: category,
-        status: status,
-        hours: hours,
-        rate: rate,
-        description: description
+function addNewProject(projectObject){
+    for(const key in projectObject){
+        console.log(projectObject[key]);
+        if(!projectObject[key]){
+            throw new Error("One of the keys for the objects is null when adding a new project.");
+        }
     }
 
-    allProjects.push(newProject);
+    allProjects.push(projectObject);
     localStorage.setItem(0, JSON.stringify(allProjects));
 }
-// ! FOR TESTING ONLY DELETE AFTER
-(function(){
-    addNewProject('1', 'm3', 'my title', 'this one', 'completed', getProjects().length + 1, 'keep it 100', 'descriptive');
-    showTable(1);
-}());
-
 /**
  * shows a specific page of the table in the table element. Shows no page if that page is empty
  * @param {number} pageNumber the page of the table to show
@@ -119,7 +106,6 @@ function addRowsToTable(rows){
  * @param {boolean} disabled optional, represents in the input should be disabled
  */
 function updateTableInfo(results, pageNumber, totalPages, disabled){
-    console.log(totalPages);
     if(disabled == undefined){
         disabled = false;
     }
@@ -147,8 +133,8 @@ function getFormToProject(type){
             id: document.querySelector(`#project-id-${type}`).value,
             owner: document.querySelector(`#project-owner-${type}`).value,
             title: document.querySelector(`#project-title-${type}`).value,
-            category: document.querySelector(`#project-category-${type}`).value,
-            status: document.querySelector(`#project-status-${type}`).value,
+            category: document.querySelector(`#project-category-${type}-list`).value,
+            status: document.querySelector(`#project-status-${type}-list`).value,
             hours: document.querySelector(`#project-hours-${type}`).value,
             rate: document.querySelector(`#project-rate-${type}`).value,
             description: document.querySelector(`#project-description-${type}`).value
@@ -156,4 +142,13 @@ function getFormToProject(type){
     } else {
         throw new Error ("Form type doesn't exist");
     }
+}
+
+function createNewProject(){
+    console.log("new projects being created");
+    addNewProject(getFormToProject("add"));
+}
+
+function modifyProject(){
+
 }
