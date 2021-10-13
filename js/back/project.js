@@ -31,7 +31,7 @@ function addNewProject(id, owner, title, category, status, hours, rate, descript
 // ! FOR TESTING ONLY DELETE AFTER
 (function(){
     addNewProject('1', 'm3', 'my title', 'this one', 'completed', getProjects().length + 1, 'keep it 100', 'descriptive');
-    showTable(2);
+    showTable(1);
 }());
 
 /**
