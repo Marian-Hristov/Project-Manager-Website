@@ -126,7 +126,11 @@ function updateTableInfo(results, pageNumber, totalPages, disabled){
     pageInput.value = pageNumber;
     pageTotalDisplay.textContent = "of "+ totalPages;
 }
-
+/**
+ * This function gets the values of the appropriate form and returns a project object containing them
+ * @param {string} type the type of the form to get values from
+ * @return {Object} the project object formed by the values of the form
+ */
 function getFormToProject(type){
     if (type == "add" || type == "action") {
         return {
@@ -149,6 +153,46 @@ function createNewProject(){
     addNewProject(getFormToProject("add"));
 }
 
-function modifyProject(){
+function modifyProject(){}
 
+/**
+ * This function sorts the project array and returns a sorted version
+ * @param {Array} projects array of the unsorted project
+ * @return {Array} array of projects sorted by their ID
+ */
+function sortByID(projects){
+    return projects.sort(function (a, b) {
+        if ( a.id < b.id ){
+            return -1;
+        }
+        if ( a.id > b.id ){
+            return 1;
+        }
+        return 0;
+    });
+}
+
+/**
+ * This function searches if a string is contained inside any proprety of 
+ * any project and returns the project(s) in which the string was found
+ * @param {Array} projects Array of projects in which we want to search in
+ * @param {string} searchItem The string for which we want to search
+ * @return {Array} Array containing the projects where the string was found in
+ */
+function findAmongAttributes(projects, searchItem){
+    let newArray = [];
+    
+    projects.forEach(project => {
+        for(let k of Object.values(project)){
+            if(k.toString().contains(searchItem)){
+                newArray.push(project);
+            }
+        }
+    });
+
+    if(newArray.length != 0){
+        return newArray;
+    } else {
+        throw new Error("Nothing was found")
+    }
 }

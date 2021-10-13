@@ -9,10 +9,10 @@ function enablePopUpClose() {
 
 function closePopUp(type) {
     document.querySelector(`.pop-up.${type}`).style.display = "none";
-    document.querySelector(".main-container").style.overflow = "auto";
+    window.style.overflow = "auto";
 }
 
 function openPopUp(type) {
     document.querySelector(`.pop-up.${type}`).style.display = "flex";
-    document.querySelector(".main-container").style.overflow = "hidden";
+    window.style.overflow = "hidden";
 }
