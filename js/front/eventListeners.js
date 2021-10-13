@@ -14,6 +14,7 @@ function searchEvent() {
 function actionMenuEvent() {
     let buttons = document.getElementsByClassName('action-button');
     for (const element of buttons) {
+        console.log(element);
         element.addEventListener('click', showActionMenu);
     }
 }
@@ -83,4 +84,15 @@ function createProjecEvent(){
         closePopUp("add");
     });
     // document.getElementById("action-add").addEventListener("click", showTable(1));
+}
+
+function changePageEvent(){
+    document.getElementById("previous-page").addEventListener("click", ()=>{
+        const currentPage = Number(document.getElementById("table-page-number").value);
+        showTable(currentPage - 1);
+    });
+    document.getElementById("next-page").addEventListener("click", ()=>{
+        const currentPage = Number(document.getElementById("table-page-number").value);
+        showTable(currentPage + 1);
+    });
 }

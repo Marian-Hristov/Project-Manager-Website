@@ -3,9 +3,10 @@
 window.addEventListener("DOMContentLoaded", setup);
 
 function setup() {
+    changePageEvent();
     windowEvents();
     popupEvents();
     createProjecEvent();
-    actionMenuEvent();
     showTable(1);
+    actionMenuEvent();
 }
