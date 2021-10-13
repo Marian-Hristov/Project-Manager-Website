@@ -6,7 +6,7 @@ function setup() {
     changePageEvent();
     windowEvents();
     popupEvents();
-    createProjecEvent();
+    createProjectEvent();
     showTable(1);
     actionMenuEvent();
 }
