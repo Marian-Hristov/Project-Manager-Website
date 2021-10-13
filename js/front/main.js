@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", setup);
 function setup() {
     windowEvents();
     popupEvents();
-    createProjecEvent();
+    createProjectEvent();
     actionMenuEvent();
     showTable(1);
 }
