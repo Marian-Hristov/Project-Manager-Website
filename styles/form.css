@@ -22,7 +22,7 @@ form input {
     padding: 5px;
 }
 
-#project-specifications {
+.project-specifications {
     margin: auto;
     padding: 1em;
     flex-direction: column;
@@ -36,7 +36,7 @@ form input {
     width: 100%;
 }
 
-#project-titling {
+.project-titling {
     justify-content: space-evenly;
 }
 
