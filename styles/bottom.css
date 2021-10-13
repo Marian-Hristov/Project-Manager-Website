@@ -1,9 +1,11 @@
 footer {
     width: 100%;
+    margin-top: 3rem;
     bottom: 0;
-    height: max(42%, 200px);
+    flex-grow: 1;
+    /* height: max(42%, 200px); */
     background-color: hsl(0, 0%, 13%);
-    padding-bottom: 1%;
+    padding-bottom: 2%;
 }
 
 footer h1 {
