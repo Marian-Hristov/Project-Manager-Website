@@ -7,4 +7,5 @@ function setup() {
     popupEvents();
     createProjecEvent();
     actionMenuEvent();
+    showTable(1);
 }
