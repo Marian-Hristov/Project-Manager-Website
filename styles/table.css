@@ -117,14 +117,22 @@ thead {
 .table-page-change li {
     display: flex;
     align-items: center;
+    border-radius: 0.25em;
 }
 
 .table-page-change svg {
     height: 1em;
     width: 1em;
     margin: 0.5em;
+    border-radius: 1em;
 }
 
+.table-page-change li:first-child:hover{
+    background-color: rgba(65, 65, 65, 0.178);
+}
+.table-page-change li:last-child:hover{
+    background-color: rgba(65, 65, 65, 0.178);
+}
 .table-page-change-input {
     display: flex;
 }
