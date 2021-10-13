@@ -135,7 +135,25 @@ function updateTableInfo(results, pageNumber, totalPages, disabled){
     } else {
         pageInput.removeAttribute("disabled");
     }
+
     pageInput.setAttribute("max", totalPages);
     pageInput.value = pageNumber;
-    pageTotalDisplay.textContent = "of "+totalPages;
+    pageTotalDisplay.textContent = "of "+ totalPages;
+}
+
+function getFormToProject(type){
+    if (type == "add" || type == "action") {
+        return {
+            id: document.querySelector(`#project-id-${type}`).value,
+            owner: document.querySelector(`#project-owner-${type}`).value,
+            title: document.querySelector(`#project-title-${type}`).value,
+            category: document.querySelector(`#project-category-${type}`).value,
+            status: document.querySelector(`#project-status-${type}`).value,
+            hours: document.querySelector(`#project-hours-${type}`).value,
+            rate: document.querySelector(`#project-rate-${type}`).value,
+            description: document.querySelector(`#project-description-${type}`).value
+        }
+    } else {
+        throw new Error ("Form type doesn't exist");
+    }
 }
