@@ -72,3 +72,11 @@ function enableValidationEvents() {
         })
     })
 }
+
+/**
+ * Creates the event listener for adding a new project
+ */
+function createProjecEvent(){
+    document.getElementById("action-add").addEventListener("click", createNewProject);
+    document.getElementById("action-add").addEventListener("click", showTable(1));
+}
