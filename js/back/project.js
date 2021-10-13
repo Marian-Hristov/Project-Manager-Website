@@ -31,7 +31,7 @@ function addNewProject(id, owner, title, category, status, hours, rate, descript
 // ! FOR TESTING ONLY DELETE AFTER
 (function(){
     addNewProject('1', 'm3', 'my title', 'this one', 'completed', getProjects().length + 1, 'keep it 100', 'descriptive');
-    showTable(4);
+    showTable(2);
 }());
 
 /**
@@ -45,7 +45,13 @@ function showTable(pageNumber){
     const projectsPerPage = 8;
     const firstShown = (projectsPerPage * (pageNumber - 1));
     const toShow = allProjects.slice(firstShown, firstShown+projectsPerPage);
+    // updates the table
     addRowsToTable(projectsToRows(toShow));
+    
+    //updates the info
+    const totalPages = Math.ceil(allProjects.length/projectsPerPage)
+    const isDisabled = totalPages == 1;
+    updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
 }
 
 /**
@@ -107,17 +113,33 @@ function addRowsToTable(rows){
 // ! Verify type of the param of JSDocs
 /**
  * This function updates the table info container based on what is currently displayed on the table
- * @param {array} projects
- * @param {number} pageNumber
+ * @param {number} results the number representing the results shown on the page
+ * @param {number} pageNumber the number representing the pageNumber
+ * @param {number} totalPages the total number of pages to display
+ * @param {boolean} disabled optional, represents in the input should be disabled
  */
-function updateTableInfo(projects, pageNumber){
+function updateTableInfo(results, pageNumber, totalPages, disabled){
+    if(disabled == undefined){
+        disabled = false;
+    }
     // Updating the number of results
-    let resultsElem = document.querySelector(".results-number span");
-    resultsElem.textContent = `${projects.length} results`;
+    const resultsElem = document.querySelector(".results-number span");
+    resultsElem.textContent = `${results} results`;
     // Updating the page changer
-    let pageInput = document.querySelector(".table-page-change-input input");
-    let pageTotalDisplay = document.querySelector(".table-page-change-input span");
-    if((projects.length / 10) <= 1){
+    const pageInput = document.querySelector(".table-page-change-input input");
+    const pageTotalDisplay = document.querySelector(".table-page-change-input span");
+
+    if(disabled){
+        pageInput.setAttribute("disabled", disabled);
+    } else {
+        pageInput.removeAttribute("disabled");
+    }
+    pageInput.setAttribute("max", totalPages);
+    pageInput.value = pageNumber;
+    pageTotalDisplay.textContent = "of "+totalPages;
+
+
+    /* if((projects.length / 10) <= 1){
         pageInput.value = 1;
         pageInput.setAttribute("disabled", "true");
         pageTotalDisplay.textContent = "of 1";
@@ -127,8 +149,8 @@ function updateTableInfo(projects, pageNumber){
         pageTotalDisplay.textContent = `of ${Math.ceil(projects.length/10)}`
         // TODO: find a rule that from the page number selects each block of 10 projects in the array
         for(let i = 10*pageNumber - 10; i < 10*pageNumber; i++){
-            console.log(i);
-            addRowsToTable(projects[i]);
+            // console.log(i);
+            // addRowsToTable(projects[i]);
         }
-    }
+    } */
 }
