@@ -49,7 +49,7 @@ function showTable(pageNumber){
     addRowsToTable(projectsToRows(toShow));
     
     //updates the info
-    const totalPages = Math.ceil(allProjects.length/projectsPerPage)
+    const totalPages = toShow.length != 0 ?  Math.ceil(allProjects.length/projectsPerPage) : 1;
     const isDisabled = totalPages == 1;
     updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
 }
@@ -119,6 +119,7 @@ function addRowsToTable(rows){
  * @param {boolean} disabled optional, represents in the input should be disabled
  */
 function updateTableInfo(results, pageNumber, totalPages, disabled){
+    console.log(totalPages);
     if(disabled == undefined){
         disabled = false;
     }
@@ -137,20 +138,4 @@ function updateTableInfo(results, pageNumber, totalPages, disabled){
     pageInput.setAttribute("max", totalPages);
     pageInput.value = pageNumber;
     pageTotalDisplay.textContent = "of "+totalPages;
-
-
-    /* if((projects.length / 10) <= 1){
-        pageInput.value = 1;
-        pageInput.setAttribute("disabled", "true");
-        pageTotalDisplay.textContent = "of 1";
-    } else {
-        pageInput.value = pageNumber;
-        pageInput.removeAttribute("disabled");
-        pageTotalDisplay.textContent = `of ${Math.ceil(projects.length/10)}`
-        // TODO: find a rule that from the page number selects each block of 10 projects in the array
-        for(let i = 10*pageNumber - 10; i < 10*pageNumber; i++){
-            // console.log(i);
-            // addRowsToTable(projects[i]);
-        }
-    } */
 }
