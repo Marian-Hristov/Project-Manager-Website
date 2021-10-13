@@ -1,3 +1,4 @@
+const allProjects = getProjects();
 /**
  * adds a new project to local storage
  * @param {string} id the id of the project
@@ -24,16 +25,28 @@ function addNewProject(id, owner, title, category, status, hours, rate, descript
         description: description
     }
 
-    let allProjects = getProjects();
     allProjects.push(newProject);
     localStorage.setItem(0, JSON.stringify(allProjects));
 }
 // ! FOR TESTING ONLY DELETE AFTER
 (function(){
-    addNewProject('1', 'm3', 'my title', 'this one', 'completed', 12, 'keep it 100', 'descriptive');
-    console.log(getProjects());
-    addRowsToTable(projectsToRows(getProjects()))
+    addNewProject('1', 'm3', 'my title', 'this one', 'completed', getProjects().length + 1, 'keep it 100', 'descriptive');
+    showTable(4);
 }());
+
+/**
+ * shows a specific page of the table in the table element. Shows no page if that page is empty
+ * @param {number} pageNumber the page of the table to show
+ */
+function showTable(pageNumber){
+    if(!pageNumber || pageNumber<1){
+        throw new Error("The page number cannot be undefined or less than 1");
+    }
+    const projectsPerPage = 8;
+    const firstShown = (projectsPerPage * (pageNumber - 1));
+    const toShow = allProjects.slice(firstShown, firstShown+projectsPerPage);
+    addRowsToTable(projectsToRows(toShow));
+}
 
 /**
  * gets the project from local storage
@@ -64,9 +77,6 @@ function projectsToRows(projectObject){
     if(!projectObject){
         throw new Error("bro why is there project not initialized?");
     }
-    if(projectObject.length == 0){
-        throw new Error("the array of projectObjects is empty");
-    }
     let allRows = [];
 
     for(let i=0;i<projectObject.length;i++){
@@ -86,10 +96,10 @@ function projectsToRows(projectObject){
  * @param {HTMLTableRowElement[]} row the row to add to the table
  */
 function addRowsToTable(rows){
-
     const body = document.querySelector('tbody');
-    for(const row of rows){
-        body.innerHTML += row.innerHTML;
+    body.innerHTML = "";
+    for(let i=0;i<rows.length;i++){
+        body.innerHTML += rows[i].innerHTML;
     }
 }
 
