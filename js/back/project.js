@@ -162,8 +162,8 @@ function getFormToProject(type) {
             id: document.querySelector(`#project-id-${type}`).value,
             owner: document.querySelector(`#project-owner-${type}`).value,
             title: document.querySelector(`#project-title-${type}`).value,
-            category: document.querySelector(`#project-category-${type}-list`).value,
-            status: document.querySelector(`#project-status-${type}-list`).value,
+            category: document.querySelector(`input[list="project-category-${type}"]`).value,
+            status: document.querySelector(`input[list="project-status-${type}"]`).value,
             hours: document.querySelector(`#project-hours-${type}`).value,
             rate: document.querySelector(`#project-rate-${type}`).value,
             description: document.querySelector(`#project-description-${type}`).value
@@ -171,6 +171,19 @@ function getFormToProject(type) {
     } else {
         throw new Error("Form type doesn't exist");
     }
+}
+
+function getProjectToForm(project){
+    const type = "action";
+    document.querySelector(".pop-up.action .pop-up-title p").textContent = project.title;
+    document.querySelector(`#project-id-${type}`).value = project.id;
+    document.querySelector(`#project-owner-${type}`).value = project.owner;
+    document.querySelector(`#project-title-${type}`).value = project.title;
+    document.querySelector(`input[list="project-category-${type}"]`).value = project.category;
+    document.querySelector(`input[list="project-status-${type}"]`).value = project.status;
+    document.querySelector(`#project-hours-${type}`).value = project.hours;
+    document.querySelector(`#project-rate-${type}`).value = project.rate;
+    document.querySelector(`#project-description-${type}`).value = project.description;
 }
 
 function createNewProject() {

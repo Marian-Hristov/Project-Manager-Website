@@ -1,13 +1,17 @@
 function startEditingProject(index) {
     currentEditedProject = index;
     openPopUp("action");
+    let project = allProjects[currentEditedProject];
+    getProjectToForm(project);
 }
 
-function stopEditingProject(index) {
+function stopEditingProject(currentPage) {
     let newProject = getFormToProject("action");
-    allProjects[index] = newProject;
+    allProjects[currentEditedProject] = newProject;
     writeLocal();
     currentEditedProject = undefined;
+    closePopUp("action");
+    showTable(currentPage);
 }
 
 function deleteProject(index, currentPage) {

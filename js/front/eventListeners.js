@@ -133,10 +133,17 @@ function actionMenuOptionsEvent() {
         let options = row.querySelectorAll(".option");
         let index = ((currentPage - 1) * 8) + row.rowIndex - 1;
         options[0].addEventListener("click", function () {
-            
+            startEditingProject(index);
         })
         options[1].addEventListener("click", function () {
             deleteProject(index, currentPage);
         })
+    })
+}
+
+function confirmEditEvent(){
+    const currentPage = Number(document.getElementById("table-page-number").value);
+    document.querySelector("#action-action").addEventListener("click", function(){
+        stopEditingProject(currentPage);
     })
 }
