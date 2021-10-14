@@ -1,10 +1,18 @@
+let isSearching = false;
 /**
- * This functions adds an EventListener for the search button of the table
+ * This functions adds an EventListener for the search input of the table
  */
 function searchEvent() {
-    const btn = document.getElementById('table-search-button');
-    // The function handler is defined on the table.js file
-    btn.addEventListener('click', showSearchBar)
+    document.querySelector(".table-search-box input").addEventListener("input", function(){
+        const currentPage = Number(document.getElementById("table-page-number").value);
+        const toSearch = document.querySelector(".table-search-box input").value.length;
+        if(toSearch == 0){
+            isSearching = false;
+        } else {
+            isSearching = true;
+        }
+        showSearch(currentPage);
+    })
 }
 
 /**
@@ -87,21 +95,33 @@ function changePageEvent() {
     document.getElementById("previous-page").addEventListener("click", () => {
         const currentPage = Number(document.getElementById("table-page-number").value);
         if (currentPage > 1) {
-            showTable(currentPage - 1);
+            if(isSearching){
+                showSearch(currentPage - 1)
+            } else {
+                showTable(currentPage - 1); 
+            }
         }
     });
     document.getElementById("next-page").addEventListener("click", () => {
         const currentPage = Number(document.getElementById("table-page-number").value);
         const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
         if (currentPage < maxPageCount) {
-            showTable(currentPage + 1);
+            if(isSearching){
+                showSearch(currentPage + 1)
+            } else {
+                showTable(currentPage + 1); 
+            }
         }
     });
     document.querySelector(".table-page-change-input input").addEventListener("change", function () {
         const currentPage = Number(document.getElementById("table-page-number").value);
         const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
         if (currentPage >= 1 && currentPage <= maxPageCount) {
-            showTable(currentPage);
+            if(isSearching){
+                showSearch(currentPage)
+            } else {
+                showTable(currentPage); 
+            }
         }
     })
 }
