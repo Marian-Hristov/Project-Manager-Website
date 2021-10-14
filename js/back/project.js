@@ -103,7 +103,6 @@ function addRowsToTable(rows) {
     }
 }
 
-// ! Verify type of the param of JSDocs
 /**
  * This function updates the table info container based on what is currently displayed on the table
  * @param {number} results the number representing the results shown on the page

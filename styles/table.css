@@ -326,6 +326,8 @@ thead {
 .action-button.active+div {
     opacity: 1;
     z-index: 10;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 
@@ -341,6 +343,7 @@ thead {
     transition: .3s;
     border-radius: 5px;
     box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.09), 0 3.1px 5.5px rgba(0, 0, 0, 0.13), 0 14px 25px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
 }
 
 .action-menu ul {
@@ -376,5 +379,4 @@ thead {
 
 .action-menu .option:hover {
     background-color: rgba(0, 0, 0, 0.08);
-    cursor: pointer;
 }

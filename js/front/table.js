@@ -11,7 +11,6 @@ function showActionMenu(event){
     } else if(event.type == "click" && !eventPathHasClass(event.composedPath(), "action-button")){
         removeClass('active');
     }
-    
 }
 /**
  * removes a class from all html elements
@@ -43,3 +42,5 @@ function eventPathHasClass(path, className){
     }
     return false;
 }
+
+//TODO: dynamically position the action menu when the user clicks, we shoulnd't have 36 of them.
