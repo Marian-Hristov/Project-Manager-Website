@@ -1,8 +1,13 @@
 function startEditingProject(index) {
     currentEditedProject = index;
+    openPopUp("action");
 }
 
 function stopEditingProject(index) {
+    let projects = getProjects();
+    let newProject = getFormToProject("action");
+    projects[index] = newProject;
+    writeLocal(projects);
     currentEditedProject = undefined;
 }
 
