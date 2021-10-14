@@ -76,12 +76,6 @@ function getProjects() {
     return [];
 }
 
-/**
- * clears the storage
- */
-function clearStorage() {
-    localStorage.clear();
-}
 
 /**
  * transforms a project object to a row
@@ -202,17 +196,13 @@ function sortByAttributeLowToHigh(attribute) {
  * @return {Array} Array containing the projects where the string was found in
  */
 function findAmongAttributes(searchItem) {
-    let newArray = [];
-
-    allProjects.forEach(project => {
+    return allProjects.filter(project =>{
+        let hasKey = false;
         for (let k of Object.values(project)) {
-            if (String(k).includes(searchItem)) {
-                if(!newArray.includes(project)){
-                    newArray.push(project);
-                }
+             if(String(k).toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())){
+                hasKey = true;
             }
         }
+        return hasKey;
     });
-
-    return newArray;
 }

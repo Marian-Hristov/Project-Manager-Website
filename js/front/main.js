@@ -10,4 +10,5 @@ function setup() {
     showTable(1);
     actionMenuEvent();
     searchEvent();
+    clearStorageEvent();
 }
