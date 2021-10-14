@@ -1,4 +1,3 @@
-
 /**
  * This functions adds an EventListener for the search button of the table
  */
@@ -14,7 +13,6 @@ function searchEvent() {
 function actionMenuEvent() {
     let buttons = document.getElementsByClassName('action-button');
     for (const element of buttons) {
-        console.log(element);
         element.addEventListener('click', showActionMenu);
     }
 }
@@ -77,7 +75,7 @@ function enableValidationEvents() {
 /**
  * Creates the event listener for adding a new project
  */
-function createProjectEvent(){
+function createProjectEvent() {
     document.getElementById("action-add").addEventListener("click", function () {
         createNewProject();
         showTable(1);
@@ -86,13 +84,25 @@ function createProjectEvent(){
     // document.getElementById("action-add").addEventListener("click", showTable(1));
 }
 
-function changePageEvent(){
-    document.getElementById("previous-page").addEventListener("click", ()=>{
+function changePageEvent() {
+    document.getElementById("previous-page").addEventListener("click", () => {
         const currentPage = Number(document.getElementById("table-page-number").value);
-        showTable(currentPage - 1);
+        if (currentPage > 1) {
+            showTable(currentPage - 1);
+        }
     });
-    document.getElementById("next-page").addEventListener("click", ()=>{
+    document.getElementById("next-page").addEventListener("click", () => {
         const currentPage = Number(document.getElementById("table-page-number").value);
-        showTable(currentPage + 1);
+        const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
+        if (currentPage < maxPageCount) {
+            showTable(currentPage + 1);
+        }
     });
+    document.querySelector(".table-page-change-input input").addEventListener("change", function () {
+        const currentPage = Number(document.getElementById("table-page-number").value);
+        const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
+        if (currentPage >= 1 && currentPage <= maxPageCount) {
+            showTable(currentPage);
+        }
+    })
 }
