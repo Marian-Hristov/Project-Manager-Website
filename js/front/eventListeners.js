@@ -25,6 +25,13 @@ function actionMenuEvent() {
     }
 }
 
+function clearStorageEvent(){
+    document.getElementById("clear-local").addEventListener("click", ()=>{
+        clearStorage();
+        showTable(1);
+    });
+}
+
 /**
  * This function adds Eventlisteners for the window
  */

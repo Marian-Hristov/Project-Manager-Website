@@ -13,7 +13,6 @@ let currentEditedProject;
  */
 function addNewProject(projectObject) {
     for (const key in projectObject) {
-        console.log(projectObject[key]);
         if (!projectObject[key]) {
             throw new Error("One of the keys for the objects is null when adding a new project.");
         }
@@ -58,7 +57,7 @@ function showSearch(pageNumber){
     addRowsToTable(projectsToRows(toShow));
 
     //updates the info
-    const totalPages = toShow.length != 0 ? Math.ceil(allProjects.length / projectsPerPage) : 1;
+    const totalPages = toShow.length != 0 ? Math.ceil(searchResult.length / projectsPerPage) : 1;
     const isDisabled = totalPages == 1;
     updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
     actionMenuEvent();
@@ -77,12 +76,6 @@ function getProjects() {
     return [];
 }
 
-/**
- * clears the storage
- */
-function clearStorage() {
-    localStorage.clear();
-}
 
 /**
  * transforms a project object to a row
@@ -100,7 +93,8 @@ function projectsToRows(projectObject) {
         const row = document.createElement('tr');
         for (const key in projectObject[i]) {
             const td = document.createElement('td');
-            td.innerText = projectObject[i][key];
+            const value = String(projectObject[i][key]).length <= 15 ? String(projectObject[i][key]) : String(projectObject[i][key]).slice(0, 15) + "...";
+            td.innerText = value;
             row.appendChild(td);
         }
         row.innerHTML += action;
@@ -187,7 +181,6 @@ function getProjectToForm(project){
 }
 
 function createNewProject() {
-    console.log("new projects being created");
     addNewProject(getFormToProject("add"));
 }
 
@@ -216,17 +209,13 @@ function sortByAttributeLowToHigh(attribute) {
  * @return {Array} Array containing the projects where the string was found in
  */
 function findAmongAttributes(searchItem) {
-    let newArray = [];
-
-    allProjects.forEach(project => {
+    return allProjects.filter(project =>{
+        let hasKey = false;
         for (let k of Object.values(project)) {
-            if (k.includes(searchItem)) {
-                if(!newArray.includes(project)){
-                    newArray.push(project);
-                }
+             if(String(k).toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())){
+                hasKey = true;
             }
         }
+        return hasKey;
     });
-
-    return newArray;
 }

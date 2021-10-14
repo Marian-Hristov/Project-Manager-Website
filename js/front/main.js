@@ -11,4 +11,5 @@ function setup() {
     actionMenuEvent();
     searchEvent();
     confirmEditEvent();
+    clearStorageEvent();
 }
