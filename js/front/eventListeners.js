@@ -109,7 +109,6 @@ function changePageEvent() {
 function actionMenuOptionsEvent() {
     const currentPage = Number(document.getElementById("table-page-number").value);
     const rows = document.querySelectorAll(".table-container tbody tr");
-    console.log(rows);
     rows.forEach(row => {
         let options = row.querySelectorAll(".option");
         let index = ((currentPage - 1) * 8) + row.rowIndex - 1;
