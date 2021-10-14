@@ -13,7 +13,6 @@ let currentEditedProject;
  */
 function addNewProject(projectObject) {
     for (const key in projectObject) {
-        console.log(projectObject[key]);
         if (!projectObject[key]) {
             throw new Error("One of the keys for the objects is null when adding a new project.");
         }
@@ -174,7 +173,6 @@ function getFormToProject(type) {
 }
 
 function createNewProject() {
-    console.log("new projects being created");
     addNewProject(getFormToProject("add"));
 }
 
@@ -207,7 +205,7 @@ function findAmongAttributes(searchItem) {
 
     allProjects.forEach(project => {
         for (let k of Object.values(project)) {
-            if (k.includes(searchItem)) {
+            if (String(k).includes(searchItem)) {
                 if(!newArray.includes(project)){
                     newArray.push(project);
                 }
