@@ -1,10 +1,12 @@
 /**
- * This functions adds an EventListener for the search button of the table
+ * This functions adds an EventListener for the search input of the table
  */
 function searchEvent() {
-    const btn = document.getElementById('table-search-button');
-    // The function handler is defined on the table.js file
-    btn.addEventListener('click', showSearchBar)
+    document.querySelector(".btn-seach input").addEventListener("input", function(){
+        const currentPage = Number(document.getElementById("table-page-number").value);
+        const searchItem = document.querySelector(".btn-seach input").value;
+        showSearch(currentPage, searchItem);
+    })
 }
 
 /**
