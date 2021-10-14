@@ -164,12 +164,12 @@ function modifyProject() {}
  * This function sorts the project array and returns a sorted version
  * @return {Array} array of project objects sorted by their ID
  */
-function sortByID() {
-    return projects.sort(function (a, b) {
-        if (a.id < b.id) {
+function sortByAttributeLowToHigh(attribute) {
+    return allProjects.sort(function (a, b) {
+        if (a[attribute] < b[attribute]) {
             return -1;
         }
-        if (a.id > b.id) {
+        if (a[attribute] > b[attribute]) {
             return 1;
         }
         return 0;
@@ -185,10 +185,13 @@ function sortByID() {
 function findAmongAttributes(searchItem) {
     let newArray = [];
 
-    projects.forEach(project => {
+    allProjects.forEach(project => {
         for (let k of Object.values(project)) {
-            if (k.toString().contains(searchItem)) {
-                newArray.push(project);
+            console.log(typeof k);
+            if (k.includes(searchItem)) {
+                if(!newArray.includes(project)){
+                    newArray.push(project);
+                }
             }
         }
     });

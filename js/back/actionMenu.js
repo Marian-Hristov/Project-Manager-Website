@@ -4,28 +4,27 @@ function startEditingProject(index) {
 }
 
 function stopEditingProject(index) {
-    let projects = getProjects();
     let newProject = getFormToProject("action");
-    projects[index] = newProject;
-    writeLocal(projects);
+    allProjects[index] = newProject;
+    writeLocal();
     currentEditedProject = undefined;
 }
 
 function deleteProject(index, currentPage) {
-    const projects = getProjects();
+    // const projects = getProjects();
     const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
-    if (projects.length > 0 && confirm(`Are you sure you want to delete projet "${projects[index].title}" ?`)) {
-        projects.splice(index, 1);
+    if (allProjects.length > 0 && confirm(`Are you sure you want to delete projet "${allProjects[index].title}" ?`)) {
+        allProjects.splice(index, 1);
     }
     // Change the page if the project is the last of its page
-    if ((projects.length % 8) == 0) {
+    if ((allProjects.length % 8) == 0) {
         currentPage -= 1;
     }
     // Minimum page is 1
     if (currentPage == 0) {
         currentPage = 1;
     }
-    writeLocal(projects);
+    writeLocal(allProjects);
     showTable(currentPage);
 }
 

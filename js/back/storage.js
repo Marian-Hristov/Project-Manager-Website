@@ -1,3 +1,3 @@
-function writeLocal(projects) {
-    localStorage.setItem(0, JSON.stringify(projects));
+function writeLocal() {
+    localStorage.setItem(0, JSON.stringify(allProjects));
 }
