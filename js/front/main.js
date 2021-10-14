@@ -9,4 +9,5 @@ function setup() {
     createProjectEvent();
     showTable(1);
     actionMenuEvent();
+    actionMenuOptionsEvent();
 }

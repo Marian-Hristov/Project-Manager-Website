@@ -40,6 +40,8 @@ function showTable(pageNumber) {
     const totalPages = toShow.length != 0 ? Math.ceil(allProjects.length / projectsPerPage) : 1;
     const isDisabled = totalPages == 1;
     updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
+    actionMenuEvent();
+    actionMenuOptionsEvent();
 }
 
 /**
@@ -81,6 +83,7 @@ function projectsToRows(projectObject) {
             row.appendChild(td);
         }
         row.innerHTML += action;
+
         // let action = createActionMenu(i);
         // row.appendChild(action);
         allRows.push(row);

@@ -81,7 +81,6 @@ function createProjectEvent() {
         showTable(1);
         closePopUp("add");
     });
-    // document.getElementById("action-add").addEventListener("click", showTable(1));
 }
 
 function changePageEvent() {
@@ -104,5 +103,22 @@ function changePageEvent() {
         if (currentPage >= 1 && currentPage <= maxPageCount) {
             showTable(currentPage);
         }
+    })
+}
+
+function actionMenuOptionsEvent() {
+    const currentPage = Number(document.getElementById("table-page-number").value);
+    const rows = document.querySelectorAll(".table-container tbody tr");
+    console.log(rows);
+    rows.forEach(row => {
+        let options = row.querySelectorAll(".option");
+        options[0].addEventListener("click", function () {
+            let index = (currentPage * 8) - 8 + row.rowIndex - 1;
+            console.log(index, "edit");
+        })
+        options[1].addEventListener("click", function () {
+            let index = ((currentPage - 1) * 8) + row.rowIndex - 1;
+            console.log(index, "delete");
+        })
     })
 }
