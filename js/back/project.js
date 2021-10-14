@@ -45,7 +45,8 @@ function showTable(pageNumber) {
     actionMenuOptionsEvent();
 }
 
-function showSearch(pageNumber, toSearch){
+function showSearch(pageNumber){
+    let toSearch = document.querySelector(".table-search-box input").value;
     const searchResult = findAmongAttributes(toSearch);
     if (!pageNumber || pageNumber < 1) {
         throw new Error("The page number cannot be undefined or less than 1");
@@ -206,7 +207,6 @@ function findAmongAttributes(searchItem) {
 
     allProjects.forEach(project => {
         for (let k of Object.values(project)) {
-            console.log(typeof k);
             if (k.includes(searchItem)) {
                 if(!newArray.includes(project)){
                     newArray.push(project);
@@ -215,9 +215,5 @@ function findAmongAttributes(searchItem) {
         }
     });
 
-    if (newArray.length != 0) {
-        return newArray;
-    } else {
-        throw new Error("Nothing was found")
-    }
+    return newArray;
 }
