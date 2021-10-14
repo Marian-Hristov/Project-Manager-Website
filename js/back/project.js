@@ -99,7 +99,8 @@ function projectsToRows(projectObject) {
         const row = document.createElement('tr');
         for (const key in projectObject[i]) {
             const td = document.createElement('td');
-            td.innerText = projectObject[i][key];
+            const value = String(projectObject[i][key]).length <= 15 ? String(projectObject[i][key]) : String(projectObject[i][key]).slice(0, 15) + "...";
+            td.innerText = value;
             row.appendChild(td);
         }
         row.innerHTML += action;
