@@ -57,7 +57,7 @@ function showSearch(pageNumber, toSearch){
     addRowsToTable(projectsToRows(toShow));
 
     //updates the info
-    const totalPages = toShow.length != 0 ? Math.ceil(allProjects.length / projectsPerPage) : 1;
+    const totalPages = toShow.length != 0 ? Math.ceil(searchResult.length / projectsPerPage) : 1;
     const isDisabled = totalPages == 1;
     updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
     actionMenuEvent();
