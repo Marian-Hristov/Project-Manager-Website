@@ -112,13 +112,12 @@ function actionMenuOptionsEvent() {
     console.log(rows);
     rows.forEach(row => {
         let options = row.querySelectorAll(".option");
+        let index = ((currentPage - 1) * 8) + row.rowIndex - 1;
         options[0].addEventListener("click", function () {
-            let index = (currentPage * 8) - 8 + row.rowIndex - 1;
-            console.log(index, "edit");
+            
         })
         options[1].addEventListener("click", function () {
-            let index = ((currentPage - 1) * 8) + row.rowIndex - 1;
-            console.log(index, "delete");
+            deleteProject(index, currentPage);
         })
     })
 }

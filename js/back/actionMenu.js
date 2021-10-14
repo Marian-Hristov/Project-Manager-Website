@@ -1,4 +1,3 @@
-// ! WORKING ON THE EDITING OF A PROJECT
 function startEditingProject(index) {
     currentEditedProject = index;
 }
@@ -7,14 +6,23 @@ function stopEditingProject(index) {
     currentEditedProject = undefined;
 }
 
-function deleteProject(index) {
-    console.log("deleting", index);
-    projects.splice(index, 1);
-    const projectsPerPage = 8;
-    const pageNumber = ((index - (index % projectsPerPage)) / projectsPerPage);
-    showTable(pageNumber);
+function deleteProject(index, currentPage) {
+    const projects = getProjects();
+    const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
+    if (projects.length > 0 && confirm(`Are you sure you want to delete projet "${projects[index].title}" ?`)) {
+        projects.splice(index, 1);
+    }
+    // Change the page if the project is the last of its page
+    if ((projects.length % 8) == 0) {
+        currentPage -= 1;
+    }
+    // Minimum page is 1
+    if (currentPage == 0) {
+        currentPage = 1;
+    }
+    writeLocal(projects);
+    showTable(currentPage);
 }
-// ! WORKING ON THE EDITING OF A PROJECT
 
 function createActionMenu(index) {
     const xmlns = "http://www.w3.org/2000/svg";

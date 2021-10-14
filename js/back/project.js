@@ -1,4 +1,4 @@
-const allProjects = getProjects();
+let allProjects = getProjects();
 let currentEditedProject;
 /**
  * adds a new project to local storage
@@ -27,6 +27,7 @@ function addNewProject(projectObject) {
  * @param {number} pageNumber the page of the table to show
  */
 function showTable(pageNumber) {
+    allProjects = getProjects();
     if (!pageNumber || pageNumber < 1) {
         throw new Error("The page number cannot be undefined or less than 1");
     }
