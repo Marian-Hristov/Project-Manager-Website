@@ -45,6 +45,25 @@ function showTable(pageNumber) {
     actionMenuOptionsEvent();
 }
 
+function showSearch(pageNumber, toSearch){
+    const searchResult = findAmongAttributes(toSearch);
+    if (!pageNumber || pageNumber < 1) {
+        throw new Error("The page number cannot be undefined or less than 1");
+    }
+    const projectsPerPage = 8;
+    const firstShown = (projectsPerPage * (pageNumber - 1));
+    const toShow = searchResult.slice(firstShown, firstShown + projectsPerPage);
+    // updates the table
+    addRowsToTable(projectsToRows(toShow));
+
+    //updates the info
+    const totalPages = toShow.length != 0 ? Math.ceil(allProjects.length / projectsPerPage) : 1;
+    const isDisabled = totalPages == 1;
+    updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
+    actionMenuEvent();
+    actionMenuOptionsEvent();
+}
+
 /**
  * gets the project from local storage
  * @returns the array of the projects in the local storage
