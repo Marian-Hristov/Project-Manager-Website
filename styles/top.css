@@ -25,7 +25,7 @@ header nav {
 /* Nav bar buttons container */
 .nav-input-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     width: 50%;
 }
 
@@ -35,7 +35,7 @@ header nav {
 
 .nav-input-container input {
     height: 40%;
-    font-size: calc(7px + 1vw);
+    font-size: calc(10px + 1vw);
     color: #3d5a80ff;
     border: none;
     background-color: inherit;
