@@ -36,7 +36,7 @@ function showTable(pageNumber) {
     // updates the table
     addRowsToTable(projectsToRows(toShow));
 
-    //updates the info
+    // updates the info
     const totalPages = toShow.length != 0 ? Math.ceil(allProjects.length / projectsPerPage) : 1;
     const isDisabled = totalPages == 1;
     updateTableInfo(toShow.length, pageNumber, totalPages, isDisabled);
@@ -44,9 +44,14 @@ function showTable(pageNumber) {
     actionMenuOptionsEvent();
 }
 
-function showSearch(pageNumber){
+function showSearch(pageNumber) {
     let toSearch = document.querySelector(".table-search-box input").value;
     const searchResult = findAmongAttributes(toSearch);
+    if (toSearch != "") {
+        updateStatusBar(`Your query for "${toSearch}" gave ${searchResult.length} results`);
+    } else {
+        updateStatusBar("");
+    }
     if (!pageNumber || pageNumber < 1) {
         throw new Error("The page number cannot be undefined or less than 1");
     }
@@ -70,6 +75,7 @@ function showSearch(pageNumber){
  */
 function getProjects() {
     const allProjects = JSON.parse(localStorage.getItem(0));
+    updateStatusBar(`Loaded ${allProjects.length} projects from Local Storage`);
     if (allProjects) {
         return allProjects;
     }
@@ -167,7 +173,7 @@ function getFormToProject(type) {
     }
 }
 
-function getProjectToForm(project){
+function getProjectToForm(project) {
     const type = "action";
     document.querySelector(".pop-up.action .pop-up-title p").textContent = project.title;
     document.querySelector(`#project-id-${type}`).value = project.id;
@@ -209,10 +215,10 @@ function sortByAttributeLowToHigh(attribute) {
  * @return {Array} Array containing the projects where the string was found in
  */
 function findAmongAttributes(searchItem) {
-    return allProjects.filter(project =>{
+    return allProjects.filter(project => {
         let hasKey = false;
         for (let k of Object.values(project)) {
-             if(String(k).toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())){
+            if (String(k).toLocaleLowerCase().includes(searchItem.toLocaleLowerCase())) {
                 hasKey = true;
             }
         }

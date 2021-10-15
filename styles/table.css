@@ -170,7 +170,6 @@ thead {
 /* Top buttons */
 .table-buttons {
     display: flex;
-
 }
 
 .table-new-project {
@@ -211,6 +210,7 @@ thead {
 
 .table-search-box {
     display: flex;
+    vertical-align: middle;
     justify-content: right;
     position: relative;
     height: fit-content;
@@ -291,14 +291,15 @@ thead {
 
 /* Status bar */
 .table-status-bar {
-    min-width: 6rem;
-    border-radius: 0.3rem;
-    margin: 0.2rem auto;
     margin-left: 1rem;
-    /* border: 1px solid black; */
-    box-shadow: 0 0.9px 1.5px rgb(0 0 0 / 9%),
-        0 3.1px 5.5px rgb(0 0 0 / 13%),
-        0 14px 25px rgb(0 0 0 / 12%);
+    font-size: 1em;
+    height: 40px;
+    max-height: 40px;
+}
+
+.table-status-bar p {
+    line-height: 40px;
+    margin: 0;
 }
 
 /* Action menu */
