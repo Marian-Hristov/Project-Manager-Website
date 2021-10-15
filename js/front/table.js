@@ -50,12 +50,19 @@ function eventPathHasClass(path, className) {
     return false;
 }
 
-function sortColumn(columnName){
-    console.log(columnName);
-    allProjects = sortByAttribute(String(columnName).toLowerCase());
-    showTable(1);
+/**
+ * This function sorts a function based on the given column name
+ * and if the order should be descending or not
+ * @param {string} columnName
+ * @param {boolean} descending
+ */
+function sortColumn(columnName, descending) {
+    const currentPage = Number(document.getElementById("table-page-number").value);
+    allProjects = sortByAttribute(String(columnName).toLowerCase(), descending);
+    writeLocal();
+    showTable(currentPage);
 }
-//TODO: dynamically position the action menu when the user clicks, we shoulnd't have 36 of them.
+
 /**
  * This functions sets the text of the status bar to the given message
  * @param {string} msg

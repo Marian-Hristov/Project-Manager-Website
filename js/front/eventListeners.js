@@ -155,13 +155,20 @@ function actionMenuOptionsEvent() {
     })
 }
 
-function sortColumEvent(){
+function sortColumEvent() {
     const columns = document.getElementsByClassName('column-title');
-    for(const element of columns){
-        element.addEventListener('click', ()=>{
-            sortColumn(element.children[0].innerText);
+    for (const element of columns) {
+        // element.addEventListener('click', () => {
+        //     sortColumn(element.children[0].innerText);
+        // });
+        element.children[1].children[0].addEventListener("click", function () {
+            sortColumn(element.children[0].innerText, false);
+        });
+        element.children[1].children[1].addEventListener("click", function () {
+            sortColumn(element.children[0].innerText, true);
         });
     }
+}
 /**
  * This function adds EventListeners for confirming the changes on the edit form
  */
@@ -169,5 +176,5 @@ function confirmEditEvent() {
     const currentPage = Number(document.getElementById("table-page-number").value);
     document.querySelector("#action-action").addEventListener("click", function () {
         stopEditingProject(currentPage);
-    })
+    });
 }

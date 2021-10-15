@@ -7,36 +7,42 @@ thead tr:first-child th:last-child {
     border-top-right-radius: 0.3em;
 }
 
-thead{
+thead {
     border-top: 1px solid #f3f2f3;
 }
 
-thead div{
+thead div {
     display: flex;
     align-items: center;
 }
 
-thead div span{
+thead div span {
     margin: 10px;
 }
 
-thead th{
+thead th {
     padding: 0;
 }
 
-thead div:hover{
+thead div:hover {
     background-color: #f3f2f3;
 }
 
-thead div:hover svg{
-    color:#111;
+thead div svg polygon:hover {
+    color: #111;
 }
 
-thead div svg{
+thead div svg {
     color: #b5b2b8;
     margin-left: 2px;
-    height: 12px;
-    width: 12px;
+    height: 20px;
+    width: 20px;
+}
+
+thead div svg {
+    color: #b5b2b8;
+    margin-left: 2px;
+    transform: scale(1.2, 1.2);
 }
 
 .table-section {

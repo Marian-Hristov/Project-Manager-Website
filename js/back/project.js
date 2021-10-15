@@ -213,7 +213,7 @@ function createNewProject() {
  * @return {Array} array of project objects sorted by their Attribute
  */
 function sortByAttribute(attribute, descending) {
-    
+
     return allProjects.sort(function (a, b) {
         if (a[attribute] < b[attribute]) {
             console.log(a[attribute]);
@@ -244,4 +244,28 @@ function findAmongAttributes(searchItem) {
         }
         return hasKey;
     });
+}
+
+function sortByAttribute(attribute, descending) {
+    if (descending) {
+        return allProjects.sort(function (a, b) {
+            if (a[attribute] < b[attribute]) {
+                return -1;
+            }
+            if (a[attribute] > b[attribute]) {
+                return 1;
+            }
+            return 0;
+        });
+    } else {
+        return allProjects.sort(function (a, b) {
+            if (a[attribute] > b[attribute]) {
+                return -1;
+            }
+            if (a[attribute] < b[attribute]) {
+                return 1;
+            }
+            return 0;
+        });
+    }
 }
