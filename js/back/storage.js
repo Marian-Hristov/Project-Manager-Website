@@ -1,3 +1,4 @@
+'use strit';
 /**
  * This function adds the current projects array to the local storage
  */

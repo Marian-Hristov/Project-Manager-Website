@@ -1,14 +1,16 @@
-function showActionMenu(event){
-    if(event.type=="click" && eventPathHasClass(event.composedPath(), "action-button")){
-        if(this.classList != undefined){
+'use strit';
+
+function showActionMenu(event) {
+    if (event.type == "click" && eventPathHasClass(event.composedPath(), "action-button")) {
+        if (this.classList != undefined) {
             removeClass('active', this);
             this.classList.toggle('active');
             return;
         }
-    } else if(event.type == "scroll"){
+    } else if (event.type == "scroll") {
         removeClass('active');
         return;
-    } else if(event.type == "click" && !eventPathHasClass(event.composedPath(), "action-button")){
+    } else if (event.type == "click" && !eventPathHasClass(event.composedPath(), "action-button")) {
         removeClass('active');
     }
 }
@@ -17,11 +19,11 @@ function showActionMenu(event){
  * @param {string} className The name of the class that is going to be rmemoved
  * @param {HTMLElement} elementException an optional element that is going to be skipped when removing the classes
  */
-function removeClass(className, elementException){
-    
+function removeClass(className, elementException) {
+
     const hasElement = document.getElementsByClassName(className);
-    for(const element of hasElement){
-        if(elementException != element){
+    for (const element of hasElement) {
+        if (elementException != element) {
             element.classList.remove(className);
         }
     }
@@ -33,10 +35,10 @@ function removeClass(className, elementException){
  * @param {string} className a string containing the name of the class to be found
  * @returns if the className is contained in the path
  */
-function eventPathHasClass(path, className){
+function eventPathHasClass(path, className) {
     let hasClass = false;
-    for(const key of path){
-        if((key.classList+'').includes(className)){
+    for (const key of path) {
+        if ((key.classList + '').includes(className)) {
             return true;
         }
     }
@@ -44,8 +46,6 @@ function eventPathHasClass(path, className){
 }
 
 //TODO: dynamically position the action menu when the user clicks, we shoulnd't have 36 of them.
-
-// ! working on status bar - marian 15th oct.
-function updateStatusBar(msg){
+function updateStatusBar(msg) {
     document.querySelector(".table-status-bar p").textContent = msg;
 }

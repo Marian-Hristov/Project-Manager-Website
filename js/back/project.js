@@ -1,3 +1,4 @@
+'use strit';
 // Global variables
 let allProjects = getProjects();
 let currentEditedProject;

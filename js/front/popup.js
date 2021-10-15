@@ -1,3 +1,5 @@
+'use strit';
+
 function enablePopUpClose() {
     let types = ["action", "add"]
     types.forEach(type => {

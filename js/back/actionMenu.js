@@ -1,3 +1,4 @@
+'use strit';
 /**
  * This function starts editing the current project
  * @param {number} index the index of the edited project
