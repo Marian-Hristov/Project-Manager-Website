@@ -1,5 +1,11 @@
 'use strit';
 
+/**
+ * This function toggles the visibility of the action menu 
+ * if the user clicks out of or scrolls 
+ * @param {Event} event
+ * @return {*} 
+ */
 function showActionMenu(event) {
     if (event.type == "click" && eventPathHasClass(event.composedPath(), "action-button")) {
         if (this.classList != undefined) {
@@ -15,12 +21,11 @@ function showActionMenu(event) {
     }
 }
 /**
- * removes a class from all html elements
+ * Removes a class from all HTML elements
  * @param {string} className The name of the class that is going to be rmemoved
  * @param {HTMLElement} elementException an optional element that is going to be skipped when removing the classes
  */
 function removeClass(className, elementException) {
-
     const hasElement = document.getElementsByClassName(className);
     for (const element of hasElement) {
         if (elementException != element) {
@@ -46,6 +51,10 @@ function eventPathHasClass(path, className) {
 }
 
 //TODO: dynamically position the action menu when the user clicks, we shoulnd't have 36 of them.
+/**
+ * This functions sets the text of the status bar to the given message
+ * @param {string} msg
+ */
 function updateStatusBar(msg) {
     document.querySelector(".table-status-bar p").textContent = msg;
 }
