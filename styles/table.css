@@ -159,12 +159,14 @@ thead {
     border-radius: 1em;
 }
 
-.table-page-change li:first-child:hover{
+.table-page-change li:first-child:hover {
     background-color: rgba(65, 65, 65, 0.178);
 }
-.table-page-change li:last-child:hover{
+
+.table-page-change li:last-child:hover {
     background-color: rgba(65, 65, 65, 0.178);
 }
+
 .table-page-change-input {
     display: flex;
 }
@@ -200,7 +202,6 @@ thead {
 /* Top buttons */
 .table-buttons {
     display: flex;
-
 }
 
 .table-new-project {
@@ -241,6 +242,7 @@ thead {
 
 .table-search-box {
     display: flex;
+    vertical-align: middle;
     justify-content: right;
     position: relative;
     height: fit-content;
@@ -304,8 +306,6 @@ thead {
         0 14px 25px rgba(0, 0, 0, 0.12);
 }
 
-
-
 .table-search-box svg {
     width: 40px;
     height: 40px;
@@ -321,6 +321,18 @@ thead {
     cursor: pointer;
 }
 
+/* Status bar */
+.table-status-bar {
+    margin-left: 1rem;
+    font-size: 1em;
+    height: 40px;
+    max-height: 40px;
+}
+
+.table-status-bar p {
+    line-height: 40px;
+    margin: 0;
+}
 
 /* Action menu */
 

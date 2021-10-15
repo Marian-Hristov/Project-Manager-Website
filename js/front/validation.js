@@ -1,3 +1,4 @@
+'use strit';
 /**
  * This function displays or not the approriate validation SVG for each input of each type of popup
  * @param {string} id the id of the input linked to the label without the type of the popup
@@ -88,7 +89,6 @@ function validateString(id, type, feedBackShown, allValidation) {
  * @param {boolean} allValidation if validation should start or not
  * @return {boolean} Returns if the input is valid or not
  */
-// TODO Define a default value of undefined for max
 function validateNumber(id, type, min, max, feedBackShown, allValidation) {
     let value = document.querySelector(`#${id}-${type}`).value;
     min = Number(min);
@@ -170,7 +170,7 @@ function validateAll() {
     let types = ["action", "add"];
 
     // Looping through types
-    types.forEach(type => { 
+    types.forEach(type => {
         // Looping through text inputs   
         strings.forEach(id => {
             for (let k of Object.keys(flag)) {
