@@ -175,14 +175,19 @@ function modifyProject() {}
 
 /**
  * This function sorts the project array and returns a sorted version
- * @return {Array} array of project objects sorted by their ID
+ * @return {Array} array of project objects sorted by their Attribute
  */
-function sortByAttributeLowToHigh(attribute) {
+function sortByAttribute(attribute, descending) {
+    
     return allProjects.sort(function (a, b) {
         if (a[attribute] < b[attribute]) {
+            console.log(a[attribute]);
+            console.log(b[attribute]);
+            console.log('a < b');
             return -1;
         }
         if (a[attribute] > b[attribute]) {
+            console.log('a > b');
             return 1;
         }
         return 0;

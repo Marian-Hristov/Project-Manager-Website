@@ -43,4 +43,8 @@ function eventPathHasClass(path, className){
     return false;
 }
 
-//TODO: dynamically position the action menu when the user clicks, we shoulnd't have 36 of them.
+function sortColumn(columnName){
+    console.log(columnName);
+    allProjects = sortByAttribute(String(columnName).toLowerCase());
+    showTable(1);
+}

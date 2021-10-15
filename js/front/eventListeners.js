@@ -147,3 +147,12 @@ function actionMenuOptionsEvent() {
         })
     })
 }
+
+function sortColumEvent(){
+    const columns = document.getElementsByClassName('column-title');
+    for(const element of columns){
+        element.addEventListener('click', ()=>{
+            sortColumn(element.children[0].innerText);
+        });
+    }
+}
