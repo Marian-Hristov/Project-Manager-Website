@@ -44,3 +44,8 @@ function eventPathHasClass(path, className){
 }
 
 //TODO: dynamically position the action menu when the user clicks, we shoulnd't have 36 of them.
+
+// ! working on status bar - marian 15th oct.
+function updateStatusBar(msg){
+    document.querySelector(".table-status-bar p").textContent = msg;
+}
