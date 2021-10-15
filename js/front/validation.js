@@ -89,7 +89,6 @@ function validateString(id, type, feedBackShown, allValidation) {
  * @param {boolean} allValidation if validation should start or not
  * @return {boolean} Returns if the input is valid or not
  */
-// TODO Define a default value of undefined for max
 function validateNumber(id, type, min, max, feedBackShown, allValidation) {
     let value = document.querySelector(`#${id}-${type}`).value;
     min = Number(min);
