@@ -1,12 +1,13 @@
+// Global variable to indicate if the user is searching or not
 let isSearching = false;
 /**
  * This functions adds an EventListener for the search input of the table
  */
 function searchEvent() {
-    document.querySelector(".table-search-box input").addEventListener("input", function(){
+    document.querySelector(".table-search-box input").addEventListener("input", function () {
         const currentPage = Number(document.getElementById("table-page-number").value);
         const toSearch = document.querySelector(".table-search-box input").value.length;
-        if(toSearch == 0){
+        if (toSearch == 0) {
             isSearching = false;
         } else {
             isSearching = true;
@@ -14,7 +15,6 @@ function searchEvent() {
         showSearch(currentPage);
     })
 }
-
 /**
  * This function adds EventListeners for the action menu of each project
  */
@@ -24,14 +24,15 @@ function actionMenuEvent() {
         element.addEventListener('click', showActionMenu);
     }
 }
-
-function clearStorageEvent(){
-    document.getElementById("clear-local").addEventListener("click", ()=>{
+/**
+ * This function adds EventListeners for the clear local button
+ */
+function clearStorageEvent() {
+    document.getElementById("clear-local").addEventListener("click", () => {
         clearStorage();
         showTable(1);
     });
 }
-
 /**
  * This function adds Eventlisteners for the window
  */
@@ -61,7 +62,6 @@ function enableValidationEvents() {
     let lists = ["project-category", "project-status"];
     // Types of popups
     let types = ["action", "add"];
-
     // looping through types
     types.forEach(type => {
         // Adding EventListener for each input of type text
@@ -86,9 +86,8 @@ function enableValidationEvents() {
         })
     })
 }
-
 /**
- * Creates the event listener for adding a new project
+ * This function adds EventListeners for adding a new project
  */
 function createProjectEvent() {
     document.getElementById("action-add").addEventListener("click", function () {
@@ -97,42 +96,50 @@ function createProjectEvent() {
         closePopUp("add");
     });
 }
-
+/**
+ * This function creates the event listener for the buttons and input 
+ * that control the page navigation of the table
+ */
 function changePageEvent() {
+    // Previous page button
     document.getElementById("previous-page").addEventListener("click", () => {
         const currentPage = Number(document.getElementById("table-page-number").value);
         if (currentPage > 1) {
-            if(isSearching){
+            if (isSearching) {
                 showSearch(currentPage - 1)
             } else {
-                showTable(currentPage - 1); 
+                showTable(currentPage - 1);
             }
         }
     });
+    // Previous page button
     document.getElementById("next-page").addEventListener("click", () => {
         const currentPage = Number(document.getElementById("table-page-number").value);
         const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
         if (currentPage < maxPageCount) {
-            if(isSearching){
+            if (isSearching) {
                 showSearch(currentPage + 1)
             } else {
-                showTable(currentPage + 1); 
+                showTable(currentPage + 1);
             }
         }
     });
+    // Page number input
     document.querySelector(".table-page-change-input input").addEventListener("change", function () {
         const currentPage = Number(document.getElementById("table-page-number").value);
         const maxPageCount = Number(document.querySelector(".table-page-change-input span").textContent.slice(3));
         if (currentPage >= 1 && currentPage <= maxPageCount) {
-            if(isSearching){
+            if (isSearching) {
                 showSearch(currentPage)
             } else {
-                showTable(currentPage); 
+                showTable(currentPage);
             }
         }
     })
 }
-
+/**
+ * This function adds EventListeners for the action menu options
+ */
 function actionMenuOptionsEvent() {
     const currentPage = Number(document.getElementById("table-page-number").value);
     const rows = document.querySelectorAll(".table-container tbody tr");
@@ -147,10 +154,12 @@ function actionMenuOptionsEvent() {
         })
     })
 }
-
-function confirmEditEvent(){
+/**
+ * This function adds EventListeners for confirming the changes on the edit form
+ */
+function confirmEditEvent() {
     const currentPage = Number(document.getElementById("table-page-number").value);
-    document.querySelector("#action-action").addEventListener("click", function(){
+    document.querySelector("#action-action").addEventListener("click", function () {
         stopEditingProject(currentPage);
     })
 }
