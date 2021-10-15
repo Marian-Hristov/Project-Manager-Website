@@ -83,15 +83,17 @@ function showSearch(pageNumber) {
 function getProjects() {
     // Reading from local storage
     const allProjects = JSON.parse(localStorage.getItem(0));
-    // Updating status bar
-    updateStatusBar(`Loaded ${allProjects.length} projects from Local Storage`);
     // Return the array
-    if (allProjects) {
+    if (allProjects == null) {
+        // Updating status bar
+        updateStatusBar(`Loaded 0 projects from Local Storage`);
+        return [];
+    } else {
+        // Updating status bar
+        updateStatusBar(`Loaded ${allProjects.length} projects from Local Storage`);
         return allProjects;
     }
-    return [];
 }
-
 
 /**
  * Transforms a project object to a row
