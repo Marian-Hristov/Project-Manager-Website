@@ -162,6 +162,7 @@ function sortColumEvent(){
             sortColumn(element.children[0].innerText);
         });
     }
+}
 /**
  * This function adds EventListeners for confirming the changes on the edit form
  */
@@ -169,5 +170,5 @@ function confirmEditEvent() {
     const currentPage = Number(document.getElementById("table-page-number").value);
     document.querySelector("#action-action").addEventListener("click", function () {
         stopEditingProject(currentPage);
-    })
+    });
 }

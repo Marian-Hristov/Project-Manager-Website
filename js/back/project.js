@@ -51,12 +51,6 @@ function showSearch(pageNumber) {
     let toSearch = document.querySelector(".table-search-box input").value;
     // Getting the results of the query
     const searchResult = findAmongAttributes(toSearch);
-    // Updating the status bar according to the number of results from query
-    if (toSearch != "") {
-        updateStatusBar(`Your query for "${toSearch}" gave ${searchResult.length} results`);
-    } else {
-        updateStatusBar("");
-    }
     // Validating page number
     if (!pageNumber || pageNumber < 1) {
         throw new Error("The page number cannot be undefined or less than 1");
@@ -86,11 +80,11 @@ function getProjects() {
     // Return the array
     if (allProjects == null) {
         // Updating status bar
-        updateStatusBar(`Loaded 0 projects from Local Storage`);
+        updateStatusBar(``);
         return [];
     } else {
         // Updating status bar
-        updateStatusBar(`Loaded ${allProjects.length} projects from Local Storage`);
+        updateStatusBar(``);
         return allProjects;
     }
 }
